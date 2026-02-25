@@ -1,0 +1,982 @@
+{
+  "standard": "SAE J1979 - Mode $06 On-board Monitoring Test Results",
+  "description": "Resultados de testes de monitoramento on-board (sistemas não monitorados continuamente)",
+  "testGroups": [
+    {
+      "id": "catalyst",
+      "name": "Catalyst Monitoring",
+      "namePt": "Monitoramento do Catalisador",
+      "tidRange": "0x01-0x09",
+      "tests": [
+        {
+          "tid": "0x01",
+          "name": "Catalyst Monitor Bank 1",
+          "namePt": "Monitor do Catalisador Banco 1",
+          "description": "Teste de eficiência do catalisador comparando sinais dos sensores O2 upstream e downstream do banco 1",
+          "componentId": "0x00",
+          "unit": "ratio",
+          "scaling": 0.0039,
+          "typicalMin": 0,
+          "typicalMax": 1.0,
+          "failThreshold": "> 0.85 (razão O2 downstream/upstream acima indica degradação)"
+        },
+        {
+          "tid": "0x02",
+          "name": "Catalyst Monitor Bank 2",
+          "namePt": "Monitor do Catalisador Banco 2",
+          "description": "Teste de eficiência do catalisador no banco 2 (motores em V ou boxer)",
+          "componentId": "0x01",
+          "unit": "ratio",
+          "scaling": 0.0039,
+          "typicalMin": 0,
+          "typicalMax": 1.0,
+          "failThreshold": "> 0.85 (razão O2 downstream/upstream acima indica degradação)"
+        },
+        {
+          "tid": "0x03",
+          "name": "O2 Sensor Response Time B1S1 (Rich-to-Lean)",
+          "namePt": "Tempo de Resposta Sensor O2 B1S1 (Rico para Pobre)",
+          "description": "Mede o tempo de resposta do sensor de oxigênio upstream banco 1, transição de mistura rica para pobre",
+          "componentId": "0x10",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 300,
+          "failThreshold": "> 450 ms (sensor lento indica envelhecimento)"
+        },
+        {
+          "tid": "0x04",
+          "name": "O2 Sensor Response Time B1S1 (Lean-to-Rich)",
+          "namePt": "Tempo de Resposta Sensor O2 B1S1 (Pobre para Rico)",
+          "description": "Mede o tempo de resposta do sensor de oxigênio upstream banco 1, transição de mistura pobre para rica",
+          "componentId": "0x10",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 300,
+          "failThreshold": "> 450 ms (sensor lento indica envelhecimento)"
+        },
+        {
+          "tid": "0x05",
+          "name": "O2 Sensor Response Time B1S2 (Rich-to-Lean)",
+          "namePt": "Tempo de Resposta Sensor O2 B1S2 (Rico para Pobre)",
+          "description": "Mede o tempo de resposta do sensor O2 downstream banco 1 na transição rico-pobre",
+          "componentId": "0x11",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 500,
+          "failThreshold": "> 600 ms"
+        },
+        {
+          "tid": "0x06",
+          "name": "O2 Sensor Response Time B2S1 (Rich-to-Lean)",
+          "namePt": "Tempo de Resposta Sensor O2 B2S1 (Rico para Pobre)",
+          "description": "Mede o tempo de resposta do sensor O2 upstream banco 2, transição rico para pobre",
+          "componentId": "0x20",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 300,
+          "failThreshold": "> 450 ms"
+        },
+        {
+          "tid": "0x07",
+          "name": "O2 Sensor Response Time B2S1 (Lean-to-Rich)",
+          "namePt": "Tempo de Resposta Sensor O2 B2S1 (Pobre para Rico)",
+          "description": "Mede o tempo de resposta do sensor O2 upstream banco 2, transição pobre para rico",
+          "componentId": "0x20",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 300,
+          "failThreshold": "> 450 ms"
+        },
+        {
+          "tid": "0x08",
+          "name": "O2 Sensor Response Time B2S2 (Rich-to-Lean)",
+          "namePt": "Tempo de Resposta Sensor O2 B2S2 (Rico para Pobre)",
+          "description": "Mede o tempo de resposta do sensor O2 downstream banco 2, transição rico para pobre",
+          "componentId": "0x21",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 500,
+          "failThreshold": "> 600 ms"
+        },
+        {
+          "tid": "0x09",
+          "name": "O2 Sensor Response Time B2S2 (Lean-to-Rich)",
+          "namePt": "Tempo de Resposta Sensor O2 B2S2 (Pobre para Rico)",
+          "description": "Mede o tempo de resposta do sensor O2 downstream banco 2, transição pobre para rico",
+          "componentId": "0x21",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 500,
+          "failThreshold": "> 600 ms"
+        }
+      ]
+    },
+    {
+      "id": "heatedCatalyst",
+      "name": "Heated Catalyst Monitoring",
+      "namePt": "Monitoramento do Catalisador Aquecido",
+      "tidRange": "0x0A-0x0F",
+      "tests": [
+        {
+          "tid": "0x0A",
+          "name": "Heated Catalyst Efficiency Bank 1",
+          "namePt": "Eficiência do Catalisador Aquecido Banco 1",
+          "description": "Teste de eficiência do catalisador aquecido no banco 1 durante a fase de aquecimento",
+          "componentId": "0x00",
+          "unit": "ratio",
+          "scaling": 0.0039,
+          "typicalMin": 0,
+          "typicalMax": 0.8,
+          "failThreshold": "> 0.75 (eficiência reduzida durante aquecimento)"
+        },
+        {
+          "tid": "0x0B",
+          "name": "Heated Catalyst Efficiency Bank 2",
+          "namePt": "Eficiência do Catalisador Aquecido Banco 2",
+          "description": "Teste de eficiência do catalisador aquecido no banco 2 durante a fase de aquecimento",
+          "componentId": "0x01",
+          "unit": "ratio",
+          "scaling": 0.0039,
+          "typicalMin": 0,
+          "typicalMax": 0.8,
+          "failThreshold": "> 0.75 (eficiência reduzida durante aquecimento)"
+        },
+        {
+          "tid": "0x0C",
+          "name": "Heated Catalyst Light-Off Time Bank 1",
+          "namePt": "Tempo de Light-Off Catalisador Aquecido Banco 1",
+          "description": "Tempo necessário para o catalisador do banco 1 atingir temperatura de operação (light-off ~250°C)",
+          "componentId": "0x00",
+          "unit": "seconds",
+          "scaling": 0.1,
+          "typicalMin": 10,
+          "typicalMax": 120,
+          "failThreshold": "> 180 s (aquecimento excessivamente lento)"
+        },
+        {
+          "tid": "0x0D",
+          "name": "Heated Catalyst Light-Off Time Bank 2",
+          "namePt": "Tempo de Light-Off Catalisador Aquecido Banco 2",
+          "description": "Tempo necessário para o catalisador do banco 2 atingir temperatura de operação",
+          "componentId": "0x01",
+          "unit": "seconds",
+          "scaling": 0.1,
+          "typicalMin": 10,
+          "typicalMax": 120,
+          "failThreshold": "> 180 s (aquecimento excessivamente lento)"
+        }
+      ]
+    },
+    {
+      "id": "evaporativeSystem",
+      "name": "Evaporative System Monitoring",
+      "namePt": "Monitoramento do Sistema Evaporativo",
+      "tidRange": "0x10-0x1F",
+      "tests": [
+        {
+          "tid": "0x10",
+          "name": "EVAP Fine Leak Detection (0.020\")",
+          "namePt": "Detecção de Vazamento Fino EVAP (0,5mm)",
+          "description": "Detecta vazamentos pequenos no sistema evaporativo (equivalente a orifício de 0,5mm). Teste de integridade do sistema de emissões evaporativas",
+          "componentId": "0x40",
+          "unit": "Pa",
+          "scaling": 0.25,
+          "typicalMin": 0,
+          "typicalMax": 500,
+          "failThreshold": "< -250 Pa ou variação > 500 Pa (indica vazamento fino)"
+        },
+        {
+          "tid": "0x11",
+          "name": "EVAP Gross Leak Detection (0.040\")",
+          "namePt": "Detecção de Vazamento Grosso EVAP (1,0mm)",
+          "description": "Detecta vazamentos grandes no sistema evaporativo (equivalente a orifício de 1,0mm). Tampa do tanque solta é causa comum",
+          "componentId": "0x40",
+          "unit": "Pa",
+          "scaling": 0.25,
+          "typicalMin": 0,
+          "typicalMax": 1000,
+          "failThreshold": "< -500 Pa ou variação > 1000 Pa (indica vazamento grosso)"
+        },
+        {
+          "tid": "0x12",
+          "name": "EVAP Purge Flow Test",
+          "namePt": "Teste de Fluxo de Purga EVAP",
+          "description": "Verifica se a válvula de purga está funcionando corretamente e permitindo fluxo adequado de vapores para o coletor de admissão",
+          "componentId": "0x41",
+          "unit": "l/min",
+          "scaling": 0.01,
+          "typicalMin": 0.5,
+          "typicalMax": 20.0,
+          "failThreshold": "< 0.3 l/min (fluxo insuficiente, válvula possivelmente obstruída)"
+        },
+        {
+          "tid": "0x13",
+          "name": "EVAP Vent System Integrity",
+          "namePt": "Integridade do Sistema de Ventilação EVAP",
+          "description": "Verifica a integridade do sistema de ventilação do canister, incluindo válvula de ventilação e linhas",
+          "componentId": "0x42",
+          "unit": "Pa",
+          "scaling": 0.25,
+          "typicalMin": 0,
+          "typicalMax": 300,
+          "failThreshold": "> 400 Pa (possível obstrução no sistema de ventilação)"
+        },
+        {
+          "tid": "0x14",
+          "name": "EVAP Canister Load Test",
+          "namePt": "Teste de Carga do Canister EVAP",
+          "description": "Avalia a capacidade de absorção restante do canister de carvão ativado",
+          "componentId": "0x43",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": 0,
+          "typicalMax": 80,
+          "failThreshold": "> 95% (canister saturado, necessita substituição)"
+        },
+        {
+          "tid": "0x15",
+          "name": "EVAP Leak Detection Pump Current",
+          "namePt": "Corrente da Bomba de Detecção de Vazamento EVAP",
+          "description": "Monitora a corrente elétrica da bomba de detecção de vazamento durante o teste de estanqueidade",
+          "componentId": "0x44",
+          "unit": "mA",
+          "scaling": 1.0,
+          "typicalMin": 100,
+          "typicalMax": 800,
+          "failThreshold": "> 1000 mA ou < 50 mA (bomba defeituosa ou circuito aberto)"
+        }
+      ]
+    },
+    {
+      "id": "secondaryAir",
+      "name": "Secondary Air System Monitoring",
+      "namePt": "Monitoramento do Sistema de Ar Secundário",
+      "tidRange": "0x20-0x2F",
+      "tests": [
+        {
+          "tid": "0x20",
+          "name": "Secondary Air Flow Upstream of Catalyst B1",
+          "namePt": "Fluxo de Ar Secundário a Montante do Catalisador B1",
+          "description": "Mede o fluxo de ar injetado a montante do catalisador banco 1 para acelerar o aquecimento do catalisador na partida a frio",
+          "componentId": "0x30",
+          "unit": "g/s",
+          "scaling": 0.01,
+          "typicalMin": 5.0,
+          "typicalMax": 50.0,
+          "failThreshold": "< 3.0 g/s (fluxo insuficiente, bomba ou válvula defeituosa)"
+        },
+        {
+          "tid": "0x21",
+          "name": "Secondary Air Flow Upstream of Catalyst B2",
+          "namePt": "Fluxo de Ar Secundário a Montante do Catalisador B2",
+          "description": "Mede o fluxo de ar injetado a montante do catalisador banco 2",
+          "componentId": "0x31",
+          "unit": "g/s",
+          "scaling": 0.01,
+          "typicalMin": 5.0,
+          "typicalMax": 50.0,
+          "failThreshold": "< 3.0 g/s (fluxo insuficiente)"
+        },
+        {
+          "tid": "0x22",
+          "name": "Secondary Air Pump Flow Rate",
+          "namePt": "Vazão da Bomba de Ar Secundário",
+          "description": "Verifica a vazão total da bomba de ar secundário durante operação ativa",
+          "componentId": "0x32",
+          "unit": "g/s",
+          "scaling": 0.01,
+          "typicalMin": 10.0,
+          "typicalMax": 80.0,
+          "failThreshold": "< 5.0 g/s (bomba com desempenho abaixo do esperado)"
+        },
+        {
+          "tid": "0x23",
+          "name": "Secondary Air System Pressure",
+          "namePt": "Pressão do Sistema de Ar Secundário",
+          "description": "Monitora a pressão no sistema de injeção de ar secundário durante operação",
+          "componentId": "0x33",
+          "unit": "kPa",
+          "scaling": 0.1,
+          "typicalMin": 5,
+          "typicalMax": 50,
+          "failThreshold": "< 3 kPa (baixa pressão) ou > 80 kPa (obstrução na linha)"
+        }
+      ]
+    },
+    {
+      "id": "oxygenSensor",
+      "name": "Oxygen Sensor Monitoring",
+      "namePt": "Monitoramento do Sensor de Oxigênio",
+      "tidRange": "0x30-0x4F",
+      "tests": [
+        {
+          "tid": "0x30",
+          "name": "O2 Sensor Rich-to-Lean Response B1S1",
+          "namePt": "Resposta Rico-Pobre Sensor O2 B1S1",
+          "description": "Tempo de resposta do sensor O2 upstream banco 1 na transição de mistura rica para pobre durante operação em malha fechada",
+          "componentId": "0x10",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 30,
+          "typicalMax": 200,
+          "failThreshold": "> 350 ms (sensor degradado, troca recomendada)"
+        },
+        {
+          "tid": "0x31",
+          "name": "O2 Sensor Lean-to-Rich Response B1S1",
+          "namePt": "Resposta Pobre-Rico Sensor O2 B1S1",
+          "description": "Tempo de resposta do sensor O2 upstream banco 1 na transição de mistura pobre para rica",
+          "componentId": "0x10",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 30,
+          "typicalMax": 200,
+          "failThreshold": "> 350 ms (sensor degradado)"
+        },
+        {
+          "tid": "0x32",
+          "name": "O2 Sensor Rich-to-Lean Response B1S2",
+          "namePt": "Resposta Rico-Pobre Sensor O2 B1S2",
+          "description": "Tempo de resposta do sensor O2 downstream banco 1 na transição rico-pobre",
+          "componentId": "0x11",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 400,
+          "failThreshold": "> 500 ms"
+        },
+        {
+          "tid": "0x33",
+          "name": "O2 Sensor Lean-to-Rich Response B1S2",
+          "namePt": "Resposta Pobre-Rico Sensor O2 B1S2",
+          "description": "Tempo de resposta do sensor O2 downstream banco 1 na transição pobre-rico",
+          "componentId": "0x11",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 400,
+          "failThreshold": "> 500 ms"
+        },
+        {
+          "tid": "0x34",
+          "name": "O2 Sensor Rich-to-Lean Response B2S1",
+          "namePt": "Resposta Rico-Pobre Sensor O2 B2S1",
+          "description": "Tempo de resposta do sensor O2 upstream banco 2 na transição de mistura rica para pobre",
+          "componentId": "0x20",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 30,
+          "typicalMax": 200,
+          "failThreshold": "> 350 ms"
+        },
+        {
+          "tid": "0x35",
+          "name": "O2 Sensor Lean-to-Rich Response B2S1",
+          "namePt": "Resposta Pobre-Rico Sensor O2 B2S1",
+          "description": "Tempo de resposta do sensor O2 upstream banco 2 na transição pobre para rico",
+          "componentId": "0x20",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 30,
+          "typicalMax": 200,
+          "failThreshold": "> 350 ms"
+        },
+        {
+          "tid": "0x36",
+          "name": "O2 Sensor Voltage Amplitude B1S1",
+          "namePt": "Amplitude de Tensão Sensor O2 B1S1",
+          "description": "Mede a amplitude pico-a-pico da tensão do sensor O2 upstream banco 1 durante oscilação normal",
+          "componentId": "0x10",
+          "unit": "V",
+          "scaling": 0.001,
+          "typicalMin": 0.5,
+          "typicalMax": 0.9,
+          "failThreshold": "< 0.3 V (sensor com amplitude reduzida, possível contaminação)"
+        },
+        {
+          "tid": "0x37",
+          "name": "O2 Sensor Voltage Amplitude B1S2",
+          "namePt": "Amplitude de Tensão Sensor O2 B1S2",
+          "description": "Mede a amplitude pico-a-pico da tensão do sensor O2 downstream banco 1",
+          "componentId": "0x11",
+          "unit": "V",
+          "scaling": 0.001,
+          "typicalMin": 0.1,
+          "typicalMax": 0.5,
+          "failThreshold": "> 0.7 V (catalisador possivelmente ineficiente se amplitude downstream alta)"
+        },
+        {
+          "tid": "0x38",
+          "name": "O2 Sensor Voltage Amplitude B2S1",
+          "namePt": "Amplitude de Tensão Sensor O2 B2S1",
+          "description": "Mede a amplitude pico-a-pico da tensão do sensor O2 upstream banco 2",
+          "componentId": "0x20",
+          "unit": "V",
+          "scaling": 0.001,
+          "typicalMin": 0.5,
+          "typicalMax": 0.9,
+          "failThreshold": "< 0.3 V (sensor com amplitude reduzida)"
+        },
+        {
+          "tid": "0x39",
+          "name": "O2 Sensor Voltage Amplitude B2S2",
+          "namePt": "Amplitude de Tensão Sensor O2 B2S2",
+          "description": "Mede a amplitude pico-a-pico da tensão do sensor O2 downstream banco 2",
+          "componentId": "0x21",
+          "unit": "V",
+          "scaling": 0.001,
+          "typicalMin": 0.1,
+          "typicalMax": 0.5,
+          "failThreshold": "> 0.7 V"
+        },
+        {
+          "tid": "0x3A",
+          "name": "O2 Sensor Switching Frequency B1S1",
+          "namePt": "Frequência de Comutação Sensor O2 B1S1",
+          "description": "Mede a frequência de comutação do sensor O2 upstream banco 1 em condições de malha fechada estabilizada",
+          "componentId": "0x10",
+          "unit": "Hz",
+          "scaling": 0.01,
+          "typicalMin": 0.5,
+          "typicalMax": 3.0,
+          "failThreshold": "< 0.3 Hz (sensor preguiçoso) ou > 5.0 Hz (instabilidade do controle)"
+        }
+      ]
+    },
+    {
+      "id": "oxygenSensorHeater",
+      "name": "Oxygen Sensor Heater Monitoring",
+      "namePt": "Monitoramento do Aquecedor do Sensor de Oxigênio",
+      "tidRange": "0x50-0x5F",
+      "tests": [
+        {
+          "tid": "0x50",
+          "name": "O2 Sensor Heater Resistance B1S1",
+          "namePt": "Resistência do Aquecedor Sensor O2 B1S1",
+          "description": "Mede a resistência do elemento aquecedor do sensor O2 upstream banco 1 para verificar integridade do circuito",
+          "componentId": "0x10",
+          "unit": "ohm",
+          "scaling": 0.01,
+          "typicalMin": 2.0,
+          "typicalMax": 15.0,
+          "failThreshold": "> 30 ohm (resistência alta, aquecedor degradado) ou < 0.5 ohm (curto-circuito)"
+        },
+        {
+          "tid": "0x51",
+          "name": "O2 Sensor Heater Resistance B1S2",
+          "namePt": "Resistência do Aquecedor Sensor O2 B1S2",
+          "description": "Mede a resistência do aquecedor do sensor O2 downstream banco 1",
+          "componentId": "0x11",
+          "unit": "ohm",
+          "scaling": 0.01,
+          "typicalMin": 2.0,
+          "typicalMax": 15.0,
+          "failThreshold": "> 30 ohm ou < 0.5 ohm"
+        },
+        {
+          "tid": "0x52",
+          "name": "O2 Sensor Heater Resistance B2S1",
+          "namePt": "Resistência do Aquecedor Sensor O2 B2S1",
+          "description": "Mede a resistência do aquecedor do sensor O2 upstream banco 2",
+          "componentId": "0x20",
+          "unit": "ohm",
+          "scaling": 0.01,
+          "typicalMin": 2.0,
+          "typicalMax": 15.0,
+          "failThreshold": "> 30 ohm ou < 0.5 ohm"
+        },
+        {
+          "tid": "0x53",
+          "name": "O2 Sensor Heater Resistance B2S2",
+          "namePt": "Resistência do Aquecedor Sensor O2 B2S2",
+          "description": "Mede a resistência do aquecedor do sensor O2 downstream banco 2",
+          "componentId": "0x21",
+          "unit": "ohm",
+          "scaling": 0.01,
+          "typicalMin": 2.0,
+          "typicalMax": 15.0,
+          "failThreshold": "> 30 ohm ou < 0.5 ohm"
+        },
+        {
+          "tid": "0x54",
+          "name": "O2 Sensor Heater Activation Time B1S1",
+          "namePt": "Tempo de Ativação do Aquecedor Sensor O2 B1S1",
+          "description": "Tempo desde a partida do motor até o sensor O2 B1S1 atingir temperatura de operação",
+          "componentId": "0x10",
+          "unit": "seconds",
+          "scaling": 0.1,
+          "typicalMin": 5,
+          "typicalMax": 60,
+          "failThreshold": "> 90 s (aquecedor com desempenho reduzido)"
+        },
+        {
+          "tid": "0x55",
+          "name": "O2 Sensor Heater Activation Time B1S2",
+          "namePt": "Tempo de Ativação do Aquecedor Sensor O2 B1S2",
+          "description": "Tempo até o sensor O2 downstream banco 1 atingir temperatura de operação",
+          "componentId": "0x11",
+          "unit": "seconds",
+          "scaling": 0.1,
+          "typicalMin": 5,
+          "typicalMax": 60,
+          "failThreshold": "> 90 s"
+        },
+        {
+          "tid": "0x56",
+          "name": "O2 Sensor Heater Current B1S1",
+          "namePt": "Corrente do Aquecedor Sensor O2 B1S1",
+          "description": "Monitora a corrente elétrica consumida pelo aquecedor do sensor O2 B1S1 durante operação",
+          "componentId": "0x10",
+          "unit": "A",
+          "scaling": 0.01,
+          "typicalMin": 0.5,
+          "typicalMax": 3.0,
+          "failThreshold": "< 0.2 A (circuito aberto) ou > 5.0 A (curto-circuito)"
+        }
+      ]
+    },
+    {
+      "id": "egrVvt",
+      "name": "EGR/VVT System Monitoring",
+      "namePt": "Monitoramento do Sistema EGR/VVT",
+      "tidRange": "0x60-0x6F",
+      "tests": [
+        {
+          "tid": "0x60",
+          "name": "EGR Flow Test",
+          "namePt": "Teste de Fluxo EGR",
+          "description": "Verifica se a válvula EGR está permitindo a recirculação correta dos gases de escape. Mede o fluxo real vs. comandado",
+          "componentId": "0x50",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": 0,
+          "typicalMax": 50,
+          "failThreshold": "Erro > 15% entre comandado e real (válvula obstruída ou travada)"
+        },
+        {
+          "tid": "0x61",
+          "name": "EGR Valve Position Error",
+          "namePt": "Erro de Posição da Válvula EGR",
+          "description": "Diferença entre a posição comandada e a posição real da válvula EGR",
+          "componentId": "0x50",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": 0,
+          "typicalMax": 5,
+          "failThreshold": "> 10% (mecanismo travado ou sensor de posição defeituoso)"
+        },
+        {
+          "tid": "0x62",
+          "name": "EGR Slow Response Test",
+          "namePt": "Teste de Resposta Lenta EGR",
+          "description": "Mede o tempo de resposta da válvula EGR a um comando de abertura/fechamento",
+          "componentId": "0x50",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 500,
+          "failThreshold": "> 800 ms (resposta lenta, possível acúmulo de carbono)"
+        },
+        {
+          "tid": "0x63",
+          "name": "VVT Target Error Bank 1 Intake",
+          "namePt": "Erro de Alvo VVT Banco 1 Admissão",
+          "description": "Diferença entre o avanço de válvula comandado e o real no variador de fase da admissão banco 1",
+          "componentId": "0x60",
+          "unit": "degrees",
+          "scaling": 0.1,
+          "typicalMin": 0,
+          "typicalMax": 5.0,
+          "failThreshold": "> 8.0° (atuador VVT com desempenho reduzido ou pressão de óleo insuficiente)"
+        },
+        {
+          "tid": "0x64",
+          "name": "VVT Target Error Bank 1 Exhaust",
+          "namePt": "Erro de Alvo VVT Banco 1 Escape",
+          "description": "Diferença entre o avanço de válvula comandado e o real no variador de fase do escape banco 1",
+          "componentId": "0x61",
+          "unit": "degrees",
+          "scaling": 0.1,
+          "typicalMin": 0,
+          "typicalMax": 5.0,
+          "failThreshold": "> 8.0°"
+        },
+        {
+          "tid": "0x65",
+          "name": "VVT Target Error Bank 2 Intake",
+          "namePt": "Erro de Alvo VVT Banco 2 Admissão",
+          "description": "Diferença entre o avanço de válvula comandado e o real no variador de fase da admissão banco 2",
+          "componentId": "0x62",
+          "unit": "degrees",
+          "scaling": 0.1,
+          "typicalMin": 0,
+          "typicalMax": 5.0,
+          "failThreshold": "> 8.0°"
+        },
+        {
+          "tid": "0x66",
+          "name": "VVT Response Time Bank 1",
+          "namePt": "Tempo de Resposta VVT Banco 1",
+          "description": "Tempo de resposta do atuador VVT banco 1 a uma mudança de posição comandada",
+          "componentId": "0x60",
+          "unit": "ms",
+          "scaling": 1.0,
+          "typicalMin": 50,
+          "typicalMax": 500,
+          "failThreshold": "> 800 ms (resposta lenta, verificar pressão de óleo e solenóide)"
+        }
+      ]
+    },
+    {
+      "id": "misfire",
+      "name": "Misfire Monitoring",
+      "namePt": "Monitoramento de Falha de Ignição",
+      "tidRange": "0x70-0x7F",
+      "tests": [
+        {
+          "tid": "0x70",
+          "name": "Misfire Counts Cylinder 1",
+          "namePt": "Contagem de Falhas de Ignição Cilindro 1",
+          "description": "Número de falhas de ignição detectadas no cilindro 1 durante o ciclo de monitoramento (200 ou 1000 revoluções)",
+          "componentId": "0x01",
+          "unit": "counts",
+          "scaling": 1.0,
+          "typicalMin": 0,
+          "typicalMax": 5,
+          "failThreshold": "> 25 contagens/1000 rev (taxa excessiva, risco de dano ao catalisador)"
+        },
+        {
+          "tid": "0x71",
+          "name": "Misfire Counts Cylinder 2",
+          "namePt": "Contagem de Falhas de Ignição Cilindro 2",
+          "description": "Número de falhas de ignição detectadas no cilindro 2 durante o ciclo de monitoramento",
+          "componentId": "0x02",
+          "unit": "counts",
+          "scaling": 1.0,
+          "typicalMin": 0,
+          "typicalMax": 5,
+          "failThreshold": "> 25 contagens/1000 rev"
+        },
+        {
+          "tid": "0x72",
+          "name": "Misfire Counts Cylinder 3",
+          "namePt": "Contagem de Falhas de Ignição Cilindro 3",
+          "description": "Número de falhas de ignição detectadas no cilindro 3 durante o ciclo de monitoramento",
+          "componentId": "0x03",
+          "unit": "counts",
+          "scaling": 1.0,
+          "typicalMin": 0,
+          "typicalMax": 5,
+          "failThreshold": "> 25 contagens/1000 rev"
+        },
+        {
+          "tid": "0x73",
+          "name": "Misfire Counts Cylinder 4",
+          "namePt": "Contagem de Falhas de Ignição Cilindro 4",
+          "description": "Número de falhas de ignição detectadas no cilindro 4 durante o ciclo de monitoramento",
+          "componentId": "0x04",
+          "unit": "counts",
+          "scaling": 1.0,
+          "typicalMin": 0,
+          "typicalMax": 5,
+          "failThreshold": "> 25 contagens/1000 rev"
+        },
+        {
+          "tid": "0x74",
+          "name": "Misfire Counts Cylinder 5",
+          "namePt": "Contagem de Falhas de Ignição Cilindro 5",
+          "description": "Número de falhas de ignição detectadas no cilindro 5 (motores 5+ cilindros)",
+          "componentId": "0x05",
+          "unit": "counts",
+          "scaling": 1.0,
+          "typicalMin": 0,
+          "typicalMax": 5,
+          "failThreshold": "> 25 contagens/1000 rev"
+        },
+        {
+          "tid": "0x75",
+          "name": "Misfire Counts Cylinder 6",
+          "namePt": "Contagem de Falhas de Ignição Cilindro 6",
+          "description": "Número de falhas de ignição detectadas no cilindro 6 (motores 6+ cilindros)",
+          "componentId": "0x06",
+          "unit": "counts",
+          "scaling": 1.0,
+          "typicalMin": 0,
+          "typicalMax": 5,
+          "failThreshold": "> 25 contagens/1000 rev"
+        },
+        {
+          "tid": "0x76",
+          "name": "Average Misfire Rate (All Cylinders)",
+          "namePt": "Taxa Média de Falha de Ignição (Todos os Cilindros)",
+          "description": "Taxa média de falhas de ignição considerando todos os cilindros durante o período de monitoramento",
+          "componentId": "0x00",
+          "unit": "%",
+          "scaling": 0.01,
+          "typicalMin": 0,
+          "typicalMax": 1.0,
+          "failThreshold": "> 2.0% (taxa geral excessiva, indica problema sistêmico)"
+        },
+        {
+          "tid": "0x77",
+          "name": "Misfire Rate at Current RPM/Load",
+          "namePt": "Taxa de Falha na RPM/Carga Atual",
+          "description": "Taxa de falha de ignição medida na condição atual de RPM e carga do motor",
+          "componentId": "0x00",
+          "unit": "%",
+          "scaling": 0.01,
+          "typicalMin": 0,
+          "typicalMax": 0.5,
+          "failThreshold": "> 5.0% em qualquer célula RPM/carga (taxa crítica, desativa cilindro)"
+        }
+      ]
+    },
+    {
+      "id": "fuelSystem",
+      "name": "Fuel System Monitoring",
+      "namePt": "Monitoramento do Sistema de Combustível",
+      "tidRange": "0x80-0x8F",
+      "tests": [
+        {
+          "tid": "0x80",
+          "name": "Fuel Trim Adaptation Bank 1 (Idle)",
+          "namePt": "Adaptação de Correção de Combustível Banco 1 (Marcha Lenta)",
+          "description": "Valor da correção adaptativa de longo prazo (LTFT) do banco 1 em marcha lenta. Indica desvio da mistura estequiométrica",
+          "componentId": "0x00",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": -10,
+          "typicalMax": 10,
+          "failThreshold": "> ±25% (adaptação excessiva, possível vazamento de vácuo ou injetor defeituoso)"
+        },
+        {
+          "tid": "0x81",
+          "name": "Fuel Trim Adaptation Bank 1 (Cruise)",
+          "namePt": "Adaptação de Correção de Combustível Banco 1 (Cruzeiro)",
+          "description": "Valor da correção adaptativa de longo prazo do banco 1 em condição de cruzeiro (carga parcial)",
+          "componentId": "0x00",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": -10,
+          "typicalMax": 10,
+          "failThreshold": "> ±25%"
+        },
+        {
+          "tid": "0x82",
+          "name": "Fuel Trim Adaptation Bank 2 (Idle)",
+          "namePt": "Adaptação de Correção de Combustível Banco 2 (Marcha Lenta)",
+          "description": "Valor da correção adaptativa de longo prazo do banco 2 em marcha lenta",
+          "componentId": "0x01",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": -10,
+          "typicalMax": 10,
+          "failThreshold": "> ±25%"
+        },
+        {
+          "tid": "0x83",
+          "name": "Fuel Trim Adaptation Bank 2 (Cruise)",
+          "namePt": "Adaptação de Correção de Combustível Banco 2 (Cruzeiro)",
+          "description": "Valor da correção adaptativa de longo prazo do banco 2 em condição de cruzeiro",
+          "componentId": "0x01",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": -10,
+          "typicalMax": 10,
+          "failThreshold": "> ±25%"
+        },
+        {
+          "tid": "0x84",
+          "name": "Lambda Controller Deviation Bank 1",
+          "namePt": "Desvio do Controlador Lambda Banco 1",
+          "description": "Desvio do controlador lambda (malha fechada) em relação ao ponto estequiométrico no banco 1",
+          "componentId": "0x00",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": -5,
+          "typicalMax": 5,
+          "failThreshold": "> ±15% sustentado (controle de mistura instável)"
+        },
+        {
+          "tid": "0x85",
+          "name": "Lambda Controller Deviation Bank 2",
+          "namePt": "Desvio do Controlador Lambda Banco 2",
+          "description": "Desvio do controlador lambda em relação ao ponto estequiométrico no banco 2",
+          "componentId": "0x01",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": -5,
+          "typicalMax": 5,
+          "failThreshold": "> ±15% sustentado"
+        },
+        {
+          "tid": "0x86",
+          "name": "Fuel System Pressure Test",
+          "namePt": "Teste de Pressão do Sistema de Combustível",
+          "description": "Verifica se a pressão do sistema de combustível está dentro da faixa esperada para a condição de operação",
+          "componentId": "0x02",
+          "unit": "kPa",
+          "scaling": 0.5,
+          "typicalMin": 300,
+          "typicalMax": 450,
+          "failThreshold": "< 250 kPa (baixa pressão, bomba fraca) ou > 550 kPa (regulador travado)"
+        }
+      ]
+    },
+    {
+      "id": "acSystem",
+      "name": "A/C System Monitoring",
+      "namePt": "Monitoramento do Sistema de Ar-Condicionado",
+      "tidRange": "0x90-0x9F",
+      "tests": [
+        {
+          "tid": "0x90",
+          "name": "A/C Refrigerant Pressure Rationality",
+          "namePt": "Racionalidade da Pressão do Refrigerante A/C",
+          "description": "Verifica se a pressão do refrigerante do A/C está dentro de parâmetros racionais para a temperatura ambiente",
+          "componentId": "0x70",
+          "unit": "kPa",
+          "scaling": 1.0,
+          "typicalMin": 200,
+          "typicalMax": 2500,
+          "failThreshold": "< 100 kPa (baixa carga) ou > 3000 kPa (pressão excessiva, possível bloqueio)"
+        },
+        {
+          "tid": "0x91",
+          "name": "A/C Compressor Clutch Engagement",
+          "namePt": "Engate da Embreagem do Compressor A/C",
+          "description": "Verifica se a embreagem do compressor do A/C engata e desengata corretamente nos momentos esperados",
+          "componentId": "0x71",
+          "unit": "boolean",
+          "scaling": 1.0,
+          "typicalMin": 0,
+          "typicalMax": 1,
+          "failThreshold": "Estado não condiz com comando da ECU (embreagem não responde)"
+        },
+        {
+          "tid": "0x92",
+          "name": "A/C Evaporator Temperature Sensor",
+          "namePt": "Sensor de Temperatura do Evaporador A/C",
+          "description": "Verifica a racionalidade do sensor de temperatura do evaporador durante operação do A/C",
+          "componentId": "0x72",
+          "unit": "°C",
+          "scaling": 0.1,
+          "typicalMin": -5,
+          "typicalMax": 15,
+          "failThreshold": "< -10°C (possível congelamento) ou > 25°C com A/C ligado (desempenho insuficiente)"
+        }
+      ]
+    },
+    {
+      "id": "comprehensiveComponent",
+      "name": "Comprehensive Component Monitoring",
+      "namePt": "Monitoramento de Componentes Abrangente",
+      "tidRange": "0xA0-0xAF",
+      "tests": [
+        {
+          "tid": "0xA0",
+          "name": "Throttle Position Sensor Correlation",
+          "namePt": "Correlação do Sensor de Posição da Borboleta",
+          "description": "Verifica a correlação entre os dois sinais do sensor de posição da borboleta (TPS1 vs TPS2) para garantir redundância",
+          "componentId": "0x80",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": 0,
+          "typicalMax": 3.0,
+          "failThreshold": "> 5.0% de diferença (descorrelação, possível sensor defeituoso)"
+        },
+        {
+          "tid": "0xA1",
+          "name": "MAP Sensor Correlation",
+          "namePt": "Correlação do Sensor MAP",
+          "description": "Verifica a racionalidade do sensor de pressão absoluta do coletor comparando com valores calculados de MAF e RPM",
+          "componentId": "0x81",
+          "unit": "kPa",
+          "scaling": 0.1,
+          "typicalMin": 0,
+          "typicalMax": 10,
+          "failThreshold": "> 15 kPa de desvio (sensor MAP descalibrado ou com vazamento no coletor)"
+        },
+        {
+          "tid": "0xA2",
+          "name": "MAF Sensor Rationality",
+          "namePt": "Racionalidade do Sensor MAF",
+          "description": "Verifica se as leituras do sensor de fluxo de ar em massa são racionais para as condições de operação do motor",
+          "componentId": "0x82",
+          "unit": "g/s",
+          "scaling": 0.01,
+          "typicalMin": 2.0,
+          "typicalMax": 250.0,
+          "failThreshold": "Desvio > 25% do valor esperado para RPM/TPS atual (sensor contaminado ou filtro obstruído)"
+        },
+        {
+          "tid": "0xA3",
+          "name": "Engine Coolant Temperature Sensor Rationality",
+          "namePt": "Racionalidade do Sensor de Temperatura do Líquido de Arrefecimento",
+          "description": "Verifica se o sensor de temperatura do líquido de arrefecimento está fornecendo leituras racionais comparado ao tempo de funcionamento e temperatura ambiente",
+          "componentId": "0x83",
+          "unit": "°C",
+          "scaling": 0.1,
+          "typicalMin": -40,
+          "typicalMax": 120,
+          "failThreshold": "Não atinge 70°C após 10 min de operação ou > 130°C (sensor ou termostato defeituoso)"
+        },
+        {
+          "tid": "0xA4",
+          "name": "Intake Air Temperature Sensor Rationality",
+          "namePt": "Racionalidade do Sensor de Temperatura do Ar de Admissão",
+          "description": "Verifica se o sensor de temperatura do ar de admissão está fornecendo leituras plausíveis",
+          "componentId": "0x84",
+          "unit": "°C",
+          "scaling": 0.1,
+          "typicalMin": -30,
+          "typicalMax": 80,
+          "failThreshold": "Desvio > 20°C da temperatura ambiente na partida fria (sensor defeituoso)"
+        },
+        {
+          "tid": "0xA5",
+          "name": "Accelerator Pedal Position Sensor Correlation",
+          "namePt": "Correlação do Sensor de Posição do Pedal do Acelerador",
+          "description": "Verifica a correlação entre os sinais redundantes do sensor de posição do pedal do acelerador (APP1 vs APP2)",
+          "componentId": "0x85",
+          "unit": "%",
+          "scaling": 0.39,
+          "typicalMin": 0,
+          "typicalMax": 3.0,
+          "failThreshold": "> 5.0% de diferença (modo limp-home pode ser ativado por segurança)"
+        },
+        {
+          "tid": "0xA6",
+          "name": "Camshaft/Crankshaft Position Correlation",
+          "namePt": "Correlação Posição Comando/Virabrequim",
+          "description": "Verifica a sincronização entre os sensores de posição do comando de válvulas e do virabrequim",
+          "componentId": "0x86",
+          "unit": "degrees",
+          "scaling": 0.1,
+          "typicalMin": 0,
+          "typicalMax": 5.0,
+          "failThreshold": "> 10° de desvio (possível corrente de distribuição esticada ou sensor defeituoso)"
+        },
+        {
+          "tid": "0xA7",
+          "name": "Barometric Pressure Sensor Rationality",
+          "namePt": "Racionalidade do Sensor de Pressão Barométrica",
+          "description": "Verifica se o sensor de pressão barométrica fornece leituras plausíveis para a altitude estimada",
+          "componentId": "0x87",
+          "unit": "kPa",
+          "scaling": 0.1,
+          "typicalMin": 60,
+          "typicalMax": 105,
+          "failThreshold": "< 50 kPa ou > 110 kPa (sensor defeituoso ou fora de faixa)"
+        }
+      ]
+    }
+  ]
+}

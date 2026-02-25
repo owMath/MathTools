@@ -10,6 +10,8 @@ const App = {
         ecuMaps: [],
         obdPids: [],
         canSignals: {},
+        udsServices: {},
+        mode06Tests: {},
         customPinouts: [],
         customDtcCodes: [],
         customMaps: []
@@ -28,23 +30,30 @@ const App = {
         PIDsModule.init();
         CANModule.init();
         MapsModule.init();
+        WinOLSModule.init();
+        UDSModule.init();
+        Mode06Module.init();
         DatabaseModule.init();
     },
 
     async loadData() {
         try {
-            const [pinoutsRes, dtcRes, mapsRes, pidsRes, canRes] = await Promise.all([
+            const [pinoutsRes, dtcRes, mapsRes, pidsRes, canRes, udsRes, mode06Res] = await Promise.all([
                 fetch('data/pinouts.json'),
                 fetch('data/dtc-codes.json'),
                 fetch('data/ecu-maps.json'),
                 fetch('data/obd-pids.json'),
-                fetch('data/can-signals.json')
+                fetch('data/can-signals.json'),
+                fetch('data/uds-services.json'),
+                fetch('data/mode06-tests.json')
             ]);
             this.data.pinouts = (await pinoutsRes.json()).filter(Boolean);
             this.data.dtcCodes = (await dtcRes.json()).filter(Boolean);
             this.data.ecuMaps = (await mapsRes.json()).filter(Boolean);
             this.data.obdPids = (await pidsRes.json()).filter(Boolean);
             this.data.canSignals = await canRes.json();
+            this.data.udsServices = await udsRes.json();
+            this.data.mode06Tests = await mode06Res.json();
         } catch (e) {
             console.error('Erro ao carregar dados:', e);
             this.toast('Erro ao carregar base de dados. Verifique os arquivos JSON.', 'error');
@@ -126,6 +135,14 @@ const App = {
             ? this.data.canSignals.vehicles.reduce((s, v) => s + v.models.length, 0)
             : 0;
         document.getElementById('stat-can').textContent = canTotal;
+        const udsEl = document.getElementById('stat-uds');
+        if (udsEl) udsEl.textContent = (this.data.udsServices.services || []).length;
+        const m06El = document.getElementById('stat-mode06');
+        if (m06El) {
+            let total = 0;
+            (this.data.mode06Tests.testGroups || []).forEach(g => total += (g.tests || []).length);
+            m06El.textContent = total;
+        }
     },
 
     toast(message, type = 'info') {

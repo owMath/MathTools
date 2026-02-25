@@ -29367,6 +29367,24 @@
   "severity": "medium"
  },
  {
+  "code": "P1031",
+  "category": "P",
+  "system": "Sensores - GM Enhanced",
+  "description": "O2 Sensor Heater Current Monitor Control Circuit",
+  "description_en": "O2 Sensor Heater Current Monitor Control Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1032",
+  "category": "P",
+  "system": "Sensores - GM Enhanced",
+  "description": "O2 Sensor Heater Warm Up Control Circuit",
+  "description_en": "O2 Sensor Heater Warm Up Control Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1039",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -29790,6 +29808,51 @@
   "severity": "medium"
  },
  {
+  "code": "P1145",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Intake Air Temp Sensor Short to Ground",
+  "description_en": "Intake Air Temp Sensor Short to Ground",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1146",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Mass Air Flow Sensor Signal Too Low",
+  "description_en": "Mass Air Flow Sensor Signal Too Low",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1147",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Mass Air Flow Sensor Signal Too High",
+  "description_en": "Mass Air Flow Sensor Signal Too High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1148",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Mass Air Flow Sensor Power Supply Malfunction",
+  "description_en": "Mass Air Flow Sensor Power Supply Malfunction",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1149",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Closed Loop Fuel Range Bank 2",
+  "description_en": "Closed Loop Fuel Range Bank 2",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1150",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -29876,6 +29939,69 @@
   "system": "Específico do Fabricante",
   "description": "Fuel Stepper Motor Malfunction",
   "description_en": "Fuel Stepper Motor Malfunction",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1160",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Manifold Air Temperature Sensor Short to B+",
+  "description_en": "Manifold Air Temperature Sensor Short to B+",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1161",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Manifold Air Temperature Sensor Open/Short to Ground",
+  "description_en": "Manifold Air Temperature Sensor Open/Short to Ground",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1162",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Fuel Temperature Sensor Short to B+",
+  "description_en": "Fuel Temperature Sensor Short to B+",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1163",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Fuel Temperature Sensor Open/Short to Ground",
+  "description_en": "Fuel Temperature Sensor Open/Short to Ground",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1164",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Fuel Temperature Sensor Signal Too High",
+  "description_en": "Fuel Temperature Sensor Signal Too High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1165",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Bank 1 Long Term Fuel Trim Range 1 Rich Limit",
+  "description_en": "Bank 1 Long Term Fuel Trim Range 1 Rich Limit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1166",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Bank 1 Long Term Fuel Trim Range 2 Rich Limit",
+  "description_en": "Bank 1 Long Term Fuel Trim Range 2 Rich Limit",
   "description_pt": "",
   "severity": "medium"
  },
@@ -29985,6 +30111,15 @@
   "description": "Circuito aberto",
   "description_en": "( open )",
   "description_pt": "Circuito aberto",
+  "severity": "medium"
+ },
+ {
+  "code": "P1179",
+  "category": "P",
+  "system": "Sensores - VW/Audi Enhanced",
+  "description": "Linear O2 Sensor Circuit Bank 1 Sensor 2 No Activity",
+  "description_en": "Linear O2 Sensor Circuit Bank 1 Sensor 2 No Activity",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -30861,6 +30996,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1279",
+  "category": "P",
+  "system": "Combustível/Ignição - Honda Enhanced",
+  "description": "VTEC System Malfunction Solenoid Valve",
+  "description_en": "VTEC System Malfunction Solenoid Valve",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1280",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -31149,6 +31293,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1312",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 2 Combustion Misfire",
+  "description_en": "Cylinder 2 Combustion Misfire",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1313",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -31194,11 +31347,191 @@
   "severity": "medium"
  },
  {
+  "code": "P1319",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Knock Sensor 1 Signal Low",
+  "description_en": "Knock Sensor 1 Signal Low",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1320",
+  "category": "P",
+  "system": "Combustível/Ignição - GM Enhanced",
+  "description": "ICM 4X Ref Circuit Intermittent No Pulses",
+  "description_en": "ICM 4X Ref Circuit Intermittent No Pulses",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1321",
+  "category": "P",
+  "system": "Combustível/Ignição - GM Enhanced",
+  "description": "EI System IC Module 4X Ref Too Many Pulses",
+  "description_en": "EI System IC Module 4X Ref Too Many Pulses",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1322",
+  "category": "P",
+  "system": "Combustível/Ignição - GM Enhanced",
+  "description": "EI System IC Module 24X Ref Too Many Pulses",
+  "description_en": "EI System IC Module 24X Ref Too Many Pulses",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1323",
+  "category": "P",
+  "system": "Combustível/Ignição - GM Enhanced",
+  "description": "EI System IC Module 24X Ref Intermittent No Pulses",
+  "description_en": "EI System IC Module 24X Ref Intermittent No Pulses",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1324",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Knock Sensor 3 Signal Too High",
+  "description_en": "Knock Sensor 3 Signal Too High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1325",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 1 Knock Control Limit Attained",
+  "description_en": "Cylinder 1 Knock Control Limit Attained",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1326",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 2 Knock Control Limit Attained",
+  "description_en": "Cylinder 2 Knock Control Limit Attained",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1327",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 3 Knock Control Limit Attained",
+  "description_en": "Cylinder 3 Knock Control Limit Attained",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1328",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 4 Knock Control Limit Attained",
+  "description_en": "Cylinder 4 Knock Control Limit Attained",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1329",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 5 Knock Control Limit Attained",
+  "description_en": "Cylinder 5 Knock Control Limit Attained",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1330",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 6 Knock Control Limit Attained",
+  "description_en": "Cylinder 6 Knock Control Limit Attained",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1331",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 1 Knock Control Test Pulse No Attenuation",
+  "description_en": "Cylinder 1 Knock Control Test Pulse No Attenuation",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1332",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 2 Knock Control Test Pulse No Attenuation",
+  "description_en": "Cylinder 2 Knock Control Test Pulse No Attenuation",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1333",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 3 Knock Control Test Pulse No Attenuation",
+  "description_en": "Cylinder 3 Knock Control Test Pulse No Attenuation",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1334",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Cylinder 4 Knock Control Test Pulse No Attenuation",
+  "description_en": "Cylinder 4 Knock Control Test Pulse No Attenuation",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1335",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Engine Torque Monitoring Adaptation",
+  "description_en": "Engine Torque Monitoring Adaptation",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1336",
   "category": "P",
   "system": "Específico do Fabricante",
   "description": "Crank / Cam Sensor Range / Performance",
   "description_en": "Crank / Cam Sensor Range / Performance",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1337",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Camshaft Position Sensor Short to Ground",
+  "description_en": "Camshaft Position Sensor Short to Ground",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1338",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Camshaft Position Sensor Open/Short to B+",
+  "description_en": "Camshaft Position Sensor Open/Short to B+",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1339",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Crankshaft Position Sensor B+ Short",
+  "description_en": "Crankshaft Position Sensor B+ Short",
   "description_pt": "",
   "severity": "medium"
  },
@@ -31217,6 +31550,33 @@
   "system": "Específico do Fabricante",
   "description": "Camshaft Position Sensor B Range / Performance",
   "description_en": "Camshaft Position Sensor B Range / Performance",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1342",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Ignition Coil Power Output Stage 1 Short to Ground",
+  "description_en": "Ignition Coil Power Output Stage 1 Short to Ground",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1343",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Ignition Coil Power Output Stage 2 Short to B+",
+  "description_en": "Ignition Coil Power Output Stage 2 Short to B+",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1344",
+  "category": "P",
+  "system": "Combustível/Ignição - VW/Audi Enhanced",
+  "description": "Ignition Coil Power Output Stage 2 Short to Ground",
+  "description_en": "Ignition Coil Power Output Stage 2 Short to Ground",
   "description_pt": "",
   "severity": "medium"
  },
@@ -31968,6 +32328,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1432",
+  "category": "P",
+  "system": "Emissões - VW/Audi Enhanced",
+  "description": "Secondary Air Injection Valve Open",
+  "description_en": "Secondary Air Injection Valve Open",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1433",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -32190,6 +32559,15 @@
   "description": "Força de sucção do tanque de combustível Impossível",
   "description_en": "Unable To Pull Vacuum In Tank",
   "description_pt": "Força de sucção do tanque de combustível Impossível",
+  "severity": "medium"
+ },
+ {
+  "code": "P1459",
+  "category": "P",
+  "system": "Emissões - Honda Enhanced",
+  "description": "EVAP Purge Flow Switch Malfunction",
+  "description_en": "EVAP Purge Flow Switch Malfunction",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -32445,6 +32823,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1489",
+  "category": "P",
+  "system": "Emissões - Fiat/Stellantis Enhanced",
+  "description": "High Speed Radiator Fan Relay Circuit",
+  "description_en": "High Speed Radiator Fan Relay Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1490",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -32495,6 +32882,33 @@
   "system": "Específico do Fabricante",
   "description": "TCSPL Solenoid Circuit Malfunction",
   "description_en": "TCSPL Solenoid Circuit Malfunction",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1496",
+  "category": "P",
+  "system": "Emissões - Fiat/Stellantis Enhanced",
+  "description": "EVAP Leak Detection Pump Insufficient Vacuum",
+  "description_en": "EVAP Leak Detection Pump Insufficient Vacuum",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1498",
+  "category": "P",
+  "system": "Emissões - Honda Enhanced",
+  "description": "EGR Valve Lift Sensor High Voltage",
+  "description_en": "EGR Valve Lift Sensor High Voltage",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1499",
+  "category": "P",
+  "system": "Emissões - Fiat/Stellantis Enhanced",
+  "description": "Hydraulic Fan Solenoid Failure",
+  "description_en": "Hydraulic Fan Solenoid Failure",
   "description_pt": "",
   "severity": "medium"
  },
@@ -32868,6 +33282,78 @@
   "severity": "medium"
  },
  {
+  "code": "P1541",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "A/C System Low Pressure",
+  "description_en": "A/C System Low Pressure",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1542",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - VW/Audi Enhanced",
+  "description": "Throttle Actuation Potentiometer Range/Performance",
+  "description_en": "Throttle Actuation Potentiometer Range/Performance",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1543",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - VW/Audi Enhanced",
+  "description": "Throttle Actuation Potentiometer Signal Too Low",
+  "description_en": "Throttle Actuation Potentiometer Signal Too Low",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1544",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - VW/Audi Enhanced",
+  "description": "Throttle Actuation Potentiometer Signal Too High",
+  "description_en": "Throttle Actuation Potentiometer Signal Too High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1545",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "A/C Clutch Relay Control Circuit",
+  "description_en": "A/C Clutch Relay Control Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1546",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "A/C Refrigerant Condition Very Low",
+  "description_en": "A/C Refrigerant Condition Very Low",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1547",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - VW/Audi Enhanced",
+  "description": "Boost Pressure Control Valve Short to Ground",
+  "description_en": "Boost Pressure Control Valve Short to Ground",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1548",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - VW/Audi Enhanced",
+  "description": "Boost Pressure Control Valve Open",
+  "description_en": "Boost Pressure Control Valve Open",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P1549",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -32883,6 +33369,96 @@
   "description": "PSPS fora da faixa",
   "description_en": "PSPS Out Of Self Test Range",
   "description_pt": "PSPS fora da faixa",
+  "severity": "medium"
+ },
+ {
+  "code": "P1554",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Cruise Control Status Circuit",
+  "description_en": "Cruise Control Status Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1555",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "EVO System Voltage High",
+  "description_en": "EVO System Voltage High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1556",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - VW/Audi Enhanced",
+  "description": "Charge Pressure Negative Deviation",
+  "description_en": "Charge Pressure Negative Deviation",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1557",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - VW/Audi Enhanced",
+  "description": "Charge Pressure Positive Deviation",
+  "description_en": "Charge Pressure Positive Deviation",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1558",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Cruise Control Main Input High",
+  "description_en": "Cruise Control Main Input High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1559",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Cruise Control Main Input Low",
+  "description_en": "Cruise Control Main Input Low",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1560",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Cruise Control System Transaxle Not In Drive",
+  "description_en": "Cruise Control System Transaxle Not In Drive",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1561",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Cruise Control System Brake Not Released",
+  "description_en": "Cruise Control System Brake Not Released",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1562",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Cruise Control Servo Indicates Low",
+  "description_en": "Cruise Control Servo Indicates Low",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1564",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Cruise Control System Vehicle Accel Too High",
+  "description_en": "Cruise Control System Vehicle Accel Too High",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -32919,6 +33495,15 @@
   "description": "Controle de Velocidade – impossível para manter a velocidade",
   "description_en": "Speed Control Unable to Hold Speed",
   "description_pt": "Controle de Velocidade – impossível para manter a velocidade",
+  "severity": "medium"
+ },
+ {
+  "code": "P1569",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Engine Cylinder 8 Misfire",
+  "description_en": "Engine Cylinder 8 Misfire",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -33100,6 +33685,60 @@
   "description_en": "TCU Unable To Control Desired Throttle Angle",
   "description_pt": "Unidade de controle da borboleta não pode controlar ângulo do acelerador desejado",
   "severity": "medium"
+ },
+ {
+  "code": "P1594",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - Fiat/Stellantis Enhanced",
+  "description": "Charging System Voltage Too High",
+  "description_en": "Charging System Voltage Too High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1595",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - Fiat/Stellantis Enhanced",
+  "description": "Speed Control Solenoid Circuit",
+  "description_en": "Speed Control Solenoid Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1596",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - Fiat/Stellantis Enhanced",
+  "description": "Speed Control Switch Always High",
+  "description_en": "Speed Control Switch Always High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1597",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - Fiat/Stellantis Enhanced",
+  "description": "Speed Control Switch Always Low",
+  "description_en": "Speed Control Switch Always Low",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1598",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - Fiat/Stellantis Enhanced",
+  "description": "A/C Pressure Sensor Circuit High",
+  "description_en": "A/C Pressure Sensor Circuit High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1599",
+  "category": "P",
+  "system": "Controle de Marcha Lenta - GM Enhanced",
+  "description": "Engine Stall Or Near Stall Detected",
+  "description_en": "Engine Stall Or Near Stall Detected",
+  "description_pt": "",
+  "severity": "high"
  },
  {
   "code": "P1600",
@@ -33552,6 +34191,24 @@
   "severity": "medium"
  },
  {
+  "code": "P1646",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "EVAP Vent Solenoid Output Circuit",
+  "description_en": "EVAP Vent Solenoid Output Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1648",
+  "category": "P",
+  "system": "ECU/PCM - VW/Audi Enhanced",
+  "description": "Data Bus Powertrain Missing Message",
+  "description_en": "Data Bus Powertrain Missing Message",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16485",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -33585,6 +34242,15 @@
   "description": "P0105 Abs.Pressure múltiplas ou o fornecimento de tensão Bar.Pressure",
   "description_en": "",
   "description_pt": "P0105 Abs.Pressure múltiplas ou o fornecimento de tensão Bar.Pressure",
+  "severity": "medium"
+ },
+ {
+  "code": "P1649",
+  "category": "P",
+  "system": "ECU/PCM - VW/Audi Enhanced",
+  "description": "Data Bus Powertrain Missing Message From ABS",
+  "description_en": "Data Bus Powertrain Missing Message From ABS",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -34074,6 +34740,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1658",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "A/C Clutch Feedback Circuit High",
+  "description_en": "A/C Clutch Feedback Circuit High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16581",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -34371,6 +35046,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1664",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "Skip Shift Lamp Control Circuit",
+  "description_en": "Skip Shift Lamp Control Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16645",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -34404,6 +35088,15 @@
   "description": "P0 65 Cyl.  Injetor Circuito de entrada de alta / Short para B +",
   "description_en": "",
   "description_pt": "P0 65 Cyl.  Injetor Circuito de entrada de alta / Short para B +",
+  "severity": "medium"
+ },
+ {
+  "code": "P1665",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "EVAP Vent Solenoid Control",
+  "description_en": "EVAP Vent Solenoid Control",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -34458,6 +35151,15 @@
   "description": "P0 74 Cyl.5 Injetor Circuito de entrada de alta / Short para B +",
   "description_en": "",
   "description_pt": "P0 74 Cyl.5 Injetor Circuito de entrada de alta / Short para B +",
+  "severity": "medium"
+ },
+ {
+  "code": "P1666",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "Injector Low Side Open",
+  "description_en": "Injector Low Side Open",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -34587,6 +35289,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1669",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "ABS/TCS Output Circuit",
+  "description_en": "ABS/TCS Output Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16690",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -34668,6 +35379,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1671",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "MIL Circuit High",
+  "description_en": "MIL Circuit High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16710",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -34719,6 +35439,15 @@
   "description": "P0335 Pos virabrequim. Sensor (A) Circ Mau-funcionamento",
   "description_en": "",
   "description_pt": "P0335 Pos virabrequim. Sensor (A) Circ Mau-funcionamento",
+  "severity": "medium"
+ },
+ {
+  "code": "P1672",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "Low Engine Oil Level Lamp",
+  "description_en": "Low Engine Oil Level Lamp",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -34776,6 +35505,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1673",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "Engine Hot Lamp Control Circuit",
+  "description_en": "Engine Hot Lamp Control Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16735",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -34821,6 +35559,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1674",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "Tachometer Circuit",
+  "description_en": "Tachometer Circuit",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16740",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -34848,12 +35595,48 @@
   "severity": "medium"
  },
  {
+  "code": "P1675",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "EVAP Vent Solenoid",
+  "description_en": "EVAP Vent Solenoid",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1676",
+  "category": "P",
+  "system": "ECU/PCM - GM Enhanced",
+  "description": "EVAP Vent Solenoid",
+  "description_en": "EVAP Vent Solenoid",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16764",
   "category": "P",
   "system": "Específico do Fabricante",
   "description": "P0380 Circuito de Vela de Ignição / aquecedor (A) de falha elétrica no circuito",
   "description_en": "",
   "description_pt": "P0380 Circuito de Vela de Ignição / aquecedor (A) de falha elétrica no circuito",
+  "severity": "medium"
+ },
+ {
+  "code": "P1677",
+  "category": "P",
+  "system": "ECU/PCM - VW/Audi Enhanced",
+  "description": "Drive By Wire-MIL Circuit Short to B+",
+  "description_en": "Drive By Wire-MIL Circuit Short to B+",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
+  "code": "P1678",
+  "category": "P",
+  "system": "ECU/PCM - Honda Enhanced",
+  "description": "FPTDR Signal A Low",
+  "description_en": "FPTDR Signal A Low",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -34908,6 +35691,15 @@
   "description": "P0405 Dos gases de escape recirc. Sensor (A) de entrada Circ Baixo",
   "description_en": "",
   "description_pt": "P0405 Dos gases de escape recirc. Sensor (A) de entrada Circ Baixo",
+  "severity": "medium"
+ },
+ {
+  "code": "P1679",
+  "category": "P",
+  "system": "ECU/PCM - Honda Enhanced",
+  "description": "FPTDR Signal A High",
+  "description_en": "FPTDR Signal A High",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -35388,6 +36180,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1695",
+  "category": "P",
+  "system": "ECU/PCM - Fiat/Stellantis Enhanced",
+  "description": "No CCD/Bus Message From BCM",
+  "description_en": "No CCD/Bus Message From BCM",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P16952",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -35403,6 +36204,33 @@
   "description": "P0571 Cruzeiro / Brake Switch (A) Circ Mau-funcionamento",
   "description_en": "",
   "description_pt": "P0571 Cruzeiro / Brake Switch (A) Circ Mau-funcionamento",
+  "severity": "medium"
+ },
+ {
+  "code": "P1696",
+  "category": "P",
+  "system": "ECU/PCM - Fiat/Stellantis Enhanced",
+  "description": "PCM EEPROM Write Denied",
+  "description_en": "PCM EEPROM Write Denied",
+  "description_pt": "",
+  "severity": "low"
+ },
+ {
+  "code": "P1697",
+  "category": "P",
+  "system": "ECU/PCM - Fiat/Stellantis Enhanced",
+  "description": "PCM EMR Mileage Not Stored",
+  "description_en": "PCM EMR Mileage Not Stored",
+  "description_pt": "",
+  "severity": "low"
+ },
+ {
+  "code": "P1698",
+  "category": "P",
+  "system": "ECU/PCM - Fiat/Stellantis Enhanced",
+  "description": "No CCD/Bus Message From TCM",
+  "description_en": "No CCD/Bus Message From TCM",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -35457,6 +36285,15 @@
   "description": "P0605 Erro de teste interna Contr.Module ROM",
   "description_en": "",
   "description_pt": "P0605 Erro de teste interna Contr.Module ROM",
+  "severity": "medium"
+ },
+ {
+  "code": "P1699",
+  "category": "P",
+  "system": "ECU/PCM - Fiat/Stellantis Enhanced",
+  "description": "No CCD/Bus Message From PCM",
+  "description_en": "No CCD/Bus Message From PCM",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -36333,6 +37170,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1750",
+  "category": "P",
+  "system": "Transmissão - VW/Audi Enhanced",
+  "description": "Power Supply Voltage Out Of Range",
+  "description_en": "Power Supply Voltage Out Of Range",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P17509",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -36441,6 +37287,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1752",
+  "category": "P",
+  "system": "Transmissão - VW/Audi Enhanced",
+  "description": "Please Check DTC Memory Of Automatic Transmission",
+  "description_en": "Please Check DTC Memory Of Automatic Transmission",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P17520",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -36528,6 +37383,15 @@
   "description": "P11 1 O  Circ Aquecedor Sensor.  Bank -SENSOR  curto para a Terra",
   "description_en": "",
   "description_pt": "P11 1 O  Circ Aquecedor Sensor.  Bank -SENSOR  curto para a Terra",
+  "severity": "medium"
+ },
+ {
+  "code": "P1753",
+  "category": "P",
+  "system": "Transmissão - Honda Enhanced",
+  "description": "A/T Lockup Clutch Pressure Switch Circuit",
+  "description_en": "A/T Lockup Clutch Pressure Switch Circuit",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -36900,6 +37764,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1757",
+  "category": "P",
+  "system": "Transmissão - Fiat/Stellantis Enhanced",
+  "description": "Governor Pressure Above 3 PSI In Gear With 0 MPH",
+  "description_en": "Governor Pressure Above 3 PSI In Gear With 0 MPH",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P17570",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -36951,6 +37824,15 @@
   "description": "P1171 Acelerador Potenciômetro Atuação Sign.  Faixa / Performance",
   "description_en": "",
   "description_pt": "P1171 Acelerador Potenciômetro Atuação Sign.  Faixa / Performance",
+  "severity": "medium"
+ },
+ {
+  "code": "P1758",
+  "category": "P",
+  "system": "Transmissão - Honda Enhanced",
+  "description": "A/T Clutch Pressure Control Solenoid A",
+  "description_en": "A/T Clutch Pressure Control Solenoid A",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -37359,6 +38241,15 @@
   "severity": "medium"
  },
  {
+  "code": "P1763",
+  "category": "P",
+  "system": "Transmissão - GM Enhanced",
+  "description": "Governor Pressure Sensor Volts Too High",
+  "description_en": "Governor Pressure Sensor Volts Too High",
+  "description_pt": "",
+  "severity": "medium"
+ },
+ {
   "code": "P17630",
   "category": "P",
   "system": "Específico do Fabricante",
@@ -37437,6 +38328,15 @@
   "description": "P1 31 Cyl.7-Fuel Inj.Circ. Curto para terra",
   "description_en": "",
   "description_pt": "P1 31 Cyl.7-Fuel Inj.Circ. Curto para terra",
+  "severity": "medium"
+ },
+ {
+  "code": "P1764",
+  "category": "P",
+  "system": "Transmissão - GM Enhanced",
+  "description": "Governor Pressure Sensor Volts Too Low",
+  "description_en": "Governor Pressure Sensor Volts Too Low",
+  "description_pt": "",
   "severity": "medium"
  },
  {
@@ -37824,6 +38724,15 @@
   "description": "P13 1 Bata Sensor 3 Circ. Entrada baixa",
   "description_en": "",
   "description_pt": "P13 1 Bata Sensor 3 Circ. Entrada baixa",
+  "severity": "medium"
+ },
+ {
+  "code": "P1773",
+  "category": "P",
+  "system": "Transmissão - GM Enhanced",
+  "description": "TCC Stator Temp Switch Circuit",
+  "description_en": "TCC Stator Temp Switch Circuit",
+  "description_pt": "",
   "severity": "medium"
  },
  {

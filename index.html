@@ -45,9 +45,21 @@
                 <i class="fas fa-project-diagram"></i>
                 <span>Sinais CAN Bus</span>
             </a>
+            <a href="#" class="nav-item" data-section="uds">
+                <i class="fas fa-network-wired"></i>
+                <span>UDS (ISO 14229)</span>
+            </a>
+            <a href="#" class="nav-item" data-section="mode06">
+                <i class="fas fa-flask"></i>
+                <span>Mode $06 Testes</span>
+            </a>
             <a href="#" class="nav-item" data-section="maps">
                 <i class="fas fa-map"></i>
                 <span>Mapas de ECU</span>
+            </a>
+            <a href="#" class="nav-item" data-section="winols">
+                <i class="fas fa-microchip"></i>
+                <span>WinOLS</span>
             </a>
             <a href="#" class="nav-item" data-section="database">
                 <i class="fas fa-database"></i>
@@ -98,11 +110,32 @@
                         <p>PIDs OBD-II</p>
                     </div>
                 </div>
+                <div class="stat-card" data-section-link="winols">
+                    <div class="stat-icon cyan"><i class="fas fa-microchip"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-winols">WinOLS</h3>
+                        <p>Editor de ECU</p>
+                    </div>
+                </div>
                 <div class="stat-card" data-section-link="can">
                     <div class="stat-icon green"><i class="fas fa-project-diagram"></i></div>
                     <div class="stat-info">
                         <h3 id="stat-can">0</h3>
                         <p>Veículos CAN Bus</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-section-link="uds">
+                    <div class="stat-icon cyan"><i class="fas fa-network-wired"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-uds">0</h3>
+                        <p>Serviços UDS</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-section-link="mode06">
+                    <div class="stat-icon purple"><i class="fas fa-flask"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-mode06">0</h3>
+                        <p>Testes Mode $06</p>
                     </div>
                 </div>
                 <div class="stat-card" data-section-link="maps">
@@ -176,12 +209,13 @@
                         <h2><i class="fas fa-tachometer-alt"></i> PIDs OBD-II</h2>
                     </div>
                     <div class="card-body">
-                        <p>Base completa de parâmetros OBD-II (SAE J1979). Consulte PIDs de dados em tempo real, informações do veículo e mais.</p>
+                        <p>Base completa de parâmetros OBD-II (SAE J1979) com fórmulas de decodificação, unidades e ranges.</p>
                         <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> 152 PIDs padrão documentados</li>
-                            <li><i class="fas fa-check"></i> Mode 01 (dados em tempo real)</li>
-                            <li><i class="fas fa-check"></i> Mode 09 (informações do veículo)</li>
-                            <li><i class="fas fa-check"></i> Categorizado por sistema</li>
+                            <li><i class="fas fa-check"></i> 164+ PIDs com fórmulas completas</li>
+                            <li><i class="fas fa-check"></i> Modes 01-09 (todos os modos OBD-II)</li>
+                            <li><i class="fas fa-check"></i> Freeze Frame (Mode 02)</li>
+                            <li><i class="fas fa-check"></i> Fórmulas, unidades, min/max</li>
+                            <li><i class="fas fa-check"></i> Calibration ID / CVN (Mode 09)</li>
                         </ul>
                         <button class="btn btn-primary" onclick="App.navigateTo('pids')">
                             <i class="fas fa-arrow-right"></i> Acessar
@@ -194,14 +228,50 @@
                         <h2><i class="fas fa-project-diagram"></i> Sinais CAN Bus</h2>
                     </div>
                     <div class="card-body">
-                        <p>Referência de sinais CAN bus do projeto OpenDBC. 300+ modelos de veículos com sinais decodificados.</p>
+                        <p>Referência de sinais CAN bus + parser de arquivos DBC. Analise sinais CAN profissionalmente.</p>
                         <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> 400+ arquivos DBC</li>
+                            <li><i class="fas fa-check"></i> 400+ arquivos DBC (OpenDBC)</li>
                             <li><i class="fas fa-check"></i> 19 marcas, 86+ modelos</li>
-                            <li><i class="fas fa-check"></i> Sinais: RPM, velocidade, direção...</li>
-                            <li><i class="fas fa-check"></i> Fonte: commaai/opendbc (MIT)</li>
+                            <li><i class="fas fa-check"></i> Parser de arquivos .dbc integrado</li>
+                            <li><i class="fas fa-check"></i> Visualização de sinais com detalhes</li>
                         </ul>
                         <button class="btn btn-primary" onclick="App.navigateTo('can')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-network-wired"></i> UDS (ISO 14229)</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Referência completa de Unified Diagnostic Services. Nível engenharia para diagnóstico avançado de ECUs.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 23 serviços UDS documentados</li>
+                            <li><i class="fas fa-check"></i> Sub-functions e DIDs comuns</li>
+                            <li><i class="fas fa-check"></i> 22 Negative Response Codes (NRC)</li>
+                            <li><i class="fas fa-check"></i> SecurityAccess, ReadData, RoutineControl</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('uds')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-flask"></i> Mode $06 - Testes On-board</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Resultados de testes internos da ECU. Diagnóstico avançado que poucos scanners implementam.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 74+ TIDs documentados</li>
+                            <li><i class="fas fa-check"></i> 11 grupos de teste (catalisador, O2, EGR...)</li>
+                            <li><i class="fas fa-check"></i> Valores min/max e critérios de falha</li>
+                            <li><i class="fas fa-check"></i> Diagnóstico antes do DTC aparecer</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('mode06')">
                             <i class="fas fa-arrow-right"></i> Acessar
                         </button>
                     </div>
@@ -220,6 +290,25 @@
                             <li><i class="fas fa-check"></i> Salvar e exportar mapas</li>
                         </ul>
                         <button class="btn btn-primary" onclick="App.navigateTo('maps')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-microchip"></i> WinOLS - Editor de ECU</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Editor de binários de ECU estilo WinOLS. Abra arquivos .bin, encontre mapas automaticamente, edite valores e compare original vs modificado.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Hex Editor com navegação e busca</li>
+                            <li><i class="fas fa-check"></i> Map Finder automático (8/16-bit)</li>
+                            <li><i class="fas fa-check"></i> Editor de mapas 2D/3D com write-back</li>
+                            <li><i class="fas fa-check"></i> Comparador de binários (original vs mod)</li>
+                            <li><i class="fas fa-check"></i> Suporte a LE/BE, signed/unsigned</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('winols')">
                             <i class="fas fa-arrow-right"></i> Acessar
                         </button>
                     </div>
@@ -869,8 +958,6 @@
                 <div class="filter-group">
                     <select id="pid-mode-filter">
                         <option value="">Todos os Modos</option>
-                        <option value="01">Mode 01 - Dados em Tempo Real</option>
-                        <option value="09">Mode 09 - Informações do Veículo</option>
                     </select>
                     <select id="pid-category-filter">
                         <option value="">Todas as Categorias</option>
@@ -915,6 +1002,97 @@
                     <div id="can-vehicles-list"></div>
                 </div>
             </div>
+
+            <div class="card" style="margin-top:1.5rem;">
+                <div class="card-header">
+                    <h2><i class="fas fa-file-code"></i> Parser de Arquivos DBC</h2>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted" style="margin-bottom:1rem;">Carregue um arquivo .dbc (formato Vector CANdb++) para visualizar mensagens e sinais CAN decodificados. Fonte recomendada: <a href="https://github.com/commaai/opendbc" target="_blank" style="color:var(--accent-blue);">commaai/opendbc</a></p>
+                    <div class="file-upload-area" id="dbc-upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Arraste um arquivo .dbc aqui</h3>
+                        <p>ou clique para selecionar</p>
+                        <input type="file" id="dbc-file-input" accept=".dbc" hidden>
+                    </div>
+                    <div id="dbc-results" style="display:none;margin-top:1.25rem;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== UDS - ISO 14229 ==================== -->
+        <section class="section" id="section-uds">
+            <div class="section-header">
+                <h1><i class="fas fa-network-wired"></i> UDS - Diagnóstico Unificado</h1>
+                <p>Referência completa ISO 14229 - Unified Diagnostic Services</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="uds-search" placeholder="Buscar serviço (ex: ReadData, 0x22, SecurityAccess...)">
+                </div>
+                <div class="filter-group">
+                    <select id="uds-category-filter">
+                        <option value="">Todas as Categorias</option>
+                        <option value="session">Sessão & Segurança</option>
+                        <option value="data">Leitura/Escrita de Dados</option>
+                        <option value="dtc">Diagnóstico (DTC)</option>
+                        <option value="routine">Rotinas & Controle</option>
+                        <option value="upload">Upload/Download</option>
+                        <option value="communication">Comunicação</option>
+                        <option value="io">I/O Control</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="uds-container" style="display:grid;grid-template-columns:340px 1fr;gap:1rem;margin-top:1rem;">
+                <div class="uds-services-list" id="uds-services-list" style="max-height:700px;overflow-y:auto;border:1px solid var(--border-color);border-radius:var(--radius-md);background:var(--bg-card);"></div>
+                <div class="uds-detail" id="uds-detail" style="border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;background:var(--bg-card);max-height:700px;overflow-y:auto;">
+                    <div class="empty-state">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Selecione um Serviço</h3>
+                        <p>Escolha um serviço UDS na lista para ver detalhes completos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:1.5rem;">
+                <div class="card-header">
+                    <h2><i class="fas fa-exclamation-circle"></i> Negative Response Codes (NRC)</h2>
+                </div>
+                <div class="card-body">
+                    <div id="uds-nrc-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODE $06 ==================== -->
+        <section class="section" id="section-mode06">
+            <div class="section-header">
+                <h1><i class="fas fa-flask"></i> Mode $06 - Testes On-board</h1>
+                <p>Resultados de testes de monitoramento on-board (SAE J1979 Mode $06)</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="mode06-search" placeholder="Buscar teste (ex: Catalyst, O2 Sensor, EGR, Misfire...)">
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom:1.5rem;">
+                <div class="card-body" style="padding:0.85rem 1rem;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                        <i class="fas fa-info-circle" style="color:var(--accent-blue);"></i>
+                        <span style="font-size:0.88rem;color:var(--text-secondary);">
+                            <strong>Mode $06</strong> retorna resultados de testes internos da ECU. Os valores são capturados <strong>antes</strong> de um DTC ser gerado, permitindo diagnóstico preventivo. Cada teste tem um TID (Test ID), valor medido, e limites min/max definidos pela ECU.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mode06-results"></div>
         </section>
 
         <!-- ==================== MAPAS DE ECU ==================== -->
@@ -1010,6 +1188,322 @@
             </div>
 
             <input type="file" id="map-import-input" accept=".json,.csv" hidden>
+        </section>
+
+        <!-- ==================== WINOLS ==================== -->
+        <section class="section" id="section-winols">
+            <div class="section-header">
+                <h1><i class="fas fa-microchip"></i> WinOLS - Editor de ECU</h1>
+                <p>Abra binários de ECU, encontre mapas automaticamente, edite e compare arquivos</p>
+            </div>
+
+            <div class="winols-tabs">
+                <button class="winols-tab active" data-wintab="hex">
+                    <i class="fas fa-th"></i> Hex Editor
+                </button>
+                <button class="winols-tab" data-wintab="mapfinder">
+                    <i class="fas fa-search-location"></i> Map Finder
+                </button>
+                <button class="winols-tab" data-wintab="mapeditor">
+                    <i class="fas fa-edit"></i> Map Editor
+                </button>
+                <button class="winols-tab" data-wintab="compare">
+                    <i class="fas fa-columns"></i> Comparador
+                </button>
+            </div>
+
+            <!-- ===== HEX EDITOR ===== -->
+            <div class="winols-panel active" id="winols-hex">
+                <div class="winols-toolbar">
+                    <button class="btn btn-primary" id="winols-open-file">
+                        <i class="fas fa-folder-open"></i> Abrir .bin
+                    </button>
+                    <button class="btn btn-success" id="winols-save-file" disabled>
+                        <i class="fas fa-save"></i> Salvar .bin
+                    </button>
+                    <div class="winols-separator"></div>
+                    <div class="winols-file-info">
+                        <span id="winols-filename">Nenhum arquivo carregado</span>
+                        <span id="winols-filesize" class="text-muted"></span>
+                    </div>
+                    <div class="winols-separator"></div>
+                    <label class="winols-label">Ir para:</label>
+                    <input type="text" id="winols-goto-addr" class="code-input winols-addr-input" placeholder="0x0000">
+                    <button class="btn btn-sm btn-secondary" id="winols-goto-btn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div class="winols-separator"></div>
+                    <label class="winols-label">Buscar hex:</label>
+                    <input type="text" id="winols-search-hex" class="code-input winols-addr-input" placeholder="FF 00 A5...">
+                    <button class="btn btn-sm btn-secondary" id="winols-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn btn-sm btn-secondary" id="winols-search-next" disabled>
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                </div>
+
+                <div class="winols-hex-status">
+                    <span>Offset: <strong id="winols-cursor-offset">-</strong></span>
+                    <span>Valor: <strong id="winols-cursor-value">-</strong></span>
+                    <span>Int16 LE: <strong id="winols-cursor-int16le">-</strong></span>
+                    <span>Int16 BE: <strong id="winols-cursor-int16be">-</strong></span>
+                    <span>Float32: <strong id="winols-cursor-float">-</strong></span>
+                    <span id="winols-selection-info"></span>
+                </div>
+
+                <div class="winols-hex-container" id="winols-hex-view">
+                    <div class="winols-hex-empty">
+                        <i class="fas fa-file-code"></i>
+                        <h3>Nenhum Arquivo Aberto</h3>
+                        <p>Clique em "Abrir .bin" para carregar um arquivo binário de ECU</p>
+                        <p class="text-muted">Formatos suportados: .bin, .ori, .hex, qualquer arquivo binário</p>
+                    </div>
+                </div>
+
+                <div class="winols-hex-nav" id="winols-hex-nav" style="display:none;">
+                    <button class="btn btn-sm btn-secondary" id="winols-page-first"><i class="fas fa-angle-double-left"></i></button>
+                    <button class="btn btn-sm btn-secondary" id="winols-page-prev"><i class="fas fa-angle-left"></i></button>
+                    <span id="winols-page-info">Página 1 / 1</span>
+                    <button class="btn btn-sm btn-secondary" id="winols-page-next"><i class="fas fa-angle-right"></i></button>
+                    <button class="btn btn-sm btn-secondary" id="winols-page-last"><i class="fas fa-angle-double-right"></i></button>
+                    <span class="winols-separator"></span>
+                    <label class="winols-label">Bytes/linha:</label>
+                    <select id="winols-bytes-per-row" class="winols-select">
+                        <option value="16" selected>16</option>
+                        <option value="32">32</option>
+                        <option value="8">8</option>
+                    </select>
+                    <label class="winols-label">Tipo de dado:</label>
+                    <select id="winols-data-type" class="winols-select">
+                        <option value="hex8">Hex 8-bit</option>
+                        <option value="hex16le">Hex 16-bit LE</option>
+                        <option value="hex16be">Hex 16-bit BE</option>
+                        <option value="dec8">Decimal 8-bit</option>
+                        <option value="dec16le">Decimal 16-bit LE</option>
+                        <option value="dec16be">Decimal 16-bit BE</option>
+                    </select>
+                </div>
+
+                <input type="file" id="winols-file-input" accept=".bin,.ori,.hex,.rom,.ecu,.eprom" hidden>
+            </div>
+
+            <!-- ===== MAP FINDER ===== -->
+            <div class="winols-panel" id="winols-mapfinder">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-search-location"></i> Detecção Automática de Mapas</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="winols-mf-nofile" class="winols-hex-empty" style="padding:2rem;">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h3>Carregue um arquivo primeiro</h3>
+                            <p>Vá até a aba "Hex Editor" e abra um arquivo binário de ECU</p>
+                        </div>
+                        <div id="winols-mf-controls" style="display:none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Tipo de Dados</label>
+                                    <select id="winols-mf-dtype">
+                                        <option value="uint8">8-bit unsigned</option>
+                                        <option value="uint16le" selected>16-bit LE unsigned</option>
+                                        <option value="uint16be">16-bit BE unsigned</option>
+                                        <option value="int16le">16-bit LE signed</option>
+                                        <option value="int16be">16-bit BE signed</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tamanho Mínimo do Mapa</label>
+                                    <select id="winols-mf-minsize">
+                                        <option value="4">4x4</option>
+                                        <option value="6">6x6</option>
+                                        <option value="8" selected>8x8</option>
+                                        <option value="10">10x10</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Sensibilidade</label>
+                                    <select id="winols-mf-sensitivity">
+                                        <option value="high">Alta (mais resultados)</option>
+                                        <option value="medium" selected>Média</option>
+                                        <option value="low">Baixa (mais preciso)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Intervalo de Endereços</label>
+                                    <div style="display:flex;gap:0.5rem;align-items:center;">
+                                        <input type="text" id="winols-mf-start" class="code-input" placeholder="0x0000" style="width:100px;">
+                                        <span>até</span>
+                                        <input type="text" id="winols-mf-end" class="code-input" placeholder="Auto" style="width:100px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" id="winols-mf-run" style="margin-top:0.75rem;">
+                                <i class="fas fa-play"></i> Buscar Mapas
+                            </button>
+                            <span id="winols-mf-status" class="text-muted" style="margin-left:1rem;"></span>
+
+                            <div id="winols-mf-results" style="margin-top:1.5rem;display:none;">
+                                <h3 style="margin-bottom:0.75rem;color:var(--accent-blue);">
+                                    <i class="fas fa-map-marked-alt"></i> Mapas Encontrados: <span id="winols-mf-count">0</span>
+                                </h3>
+                                <div id="winols-mf-list" class="winols-mf-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== MAP EDITOR ===== -->
+            <div class="winols-panel" id="winols-mapeditor">
+                <div id="winols-me-empty" class="winols-hex-empty" style="padding:2rem;">
+                    <i class="fas fa-edit"></i>
+                    <h3>Nenhum Mapa Selecionado</h3>
+                    <p>Use o Map Finder para detectar mapas ou selecione um mapa da lista</p>
+                </div>
+                <div id="winols-me-content" style="display:none;">
+                    <div class="winols-me-header">
+                        <div class="winols-me-info">
+                            <span class="map-badge" id="winols-me-name">Mapa</span>
+                            <span class="map-badge secondary" id="winols-me-addr">0x0000</span>
+                            <span class="map-badge secondary" id="winols-me-size">0x0</span>
+                            <span class="map-badge secondary" id="winols-me-dtype">uint16le</span>
+                        </div>
+                        <div class="map-view-toggle">
+                            <button class="btn btn-sm active" id="winols-me-view-2d"><i class="fas fa-table"></i> 2D</button>
+                            <button class="btn btn-sm" id="winols-me-view-3d"><i class="fas fa-cube"></i> 3D</button>
+                        </div>
+                    </div>
+
+                    <div id="winols-me-2d">
+                        <div class="map-table-container" style="max-height:450px;">
+                            <table id="winols-me-table" class="map-table"></table>
+                        </div>
+                        <div class="map-legend" id="winols-me-legend"></div>
+                    </div>
+
+                    <div id="winols-me-3d" style="display:none;">
+                        <div class="map-3d-container">
+                            <div id="winols-me-3dplot" style="width:100%;height:500px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="map-edit-panel">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2><i class="fas fa-sliders-h"></i> Edição de Mapa</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Operação</label>
+                                        <select id="winols-me-op">
+                                            <option value="add">Somar (+)</option>
+                                            <option value="sub">Subtrair (-)</option>
+                                            <option value="mul">Multiplicar (x)</option>
+                                            <option value="set">Definir valor (=)</option>
+                                            <option value="pct">Porcentagem (%)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Valor</label>
+                                        <input type="number" id="winols-me-value" class="code-input" step="1" placeholder="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" id="winols-me-apply">
+                                            <i class="fas fa-check"></i> Aplicar
+                                        </button>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-success" id="winols-me-writeback">
+                                            <i class="fas fa-pen-nib"></i> Gravar no Binário
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="text-muted" style="margin-top:0.5rem;">
+                                    <i class="fas fa-info-circle"></i>
+                                    Clique nas células para selecionar. Ctrl+clique para multi-seleção. "Gravar no Binário" aplica os valores de volta ao arquivo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== COMPARADOR ===== -->
+            <div class="winols-panel" id="winols-compare">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-columns"></i> Comparador de Binários (Original vs Modificado)</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Arquivo Original (.bin / .ori)</label>
+                                <button class="btn btn-secondary" id="winols-cmp-open-a">
+                                    <i class="fas fa-folder-open"></i> Abrir Original
+                                </button>
+                                <span id="winols-cmp-name-a" class="text-muted" style="margin-left:0.5rem;">Nenhum</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Arquivo Modificado (.bin)</label>
+                                <button class="btn btn-secondary" id="winols-cmp-open-b">
+                                    <i class="fas fa-folder-open"></i> Abrir Modificado
+                                </button>
+                                <span id="winols-cmp-name-b" class="text-muted" style="margin-left:0.5rem;">Nenhum</span>
+                            </div>
+                            <div class="form-group" style="align-self:flex-end;">
+                                <button class="btn btn-primary" id="winols-cmp-run" disabled>
+                                    <i class="fas fa-play"></i> Comparar
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top:0.5rem;">
+                            <div class="form-group">
+                                <label>Tipo de Dados</label>
+                                <select id="winols-cmp-dtype">
+                                    <option value="hex8" selected>Hex 8-bit</option>
+                                    <option value="hex16le">Hex 16-bit LE</option>
+                                    <option value="hex16be">Hex 16-bit BE</option>
+                                    <option value="dec8">Decimal 8-bit</option>
+                                    <option value="dec16le">Decimal 16-bit LE</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Mostrar</label>
+                                <select id="winols-cmp-filter">
+                                    <option value="diff">Somente Diferenças</option>
+                                    <option value="all">Todos os Bytes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="winols-cmp-results" style="display:none;margin-top:1.25rem;">
+                    <div class="winols-cmp-summary">
+                        <span><i class="fas fa-exchange-alt"></i> Diferenças: <strong id="winols-cmp-diff-count">0</strong></span>
+                        <span>Tamanho Original: <strong id="winols-cmp-size-a">0</strong></span>
+                        <span>Tamanho Modificado: <strong id="winols-cmp-size-b">0</strong></span>
+                    </div>
+                    <div class="winols-cmp-table-container">
+                        <table id="winols-cmp-table" class="winols-cmp-table">
+                            <thead>
+                                <tr>
+                                    <th>Offset</th>
+                                    <th>Original</th>
+                                    <th>Modificado</th>
+                                    <th>Diferença</th>
+                                </tr>
+                            </thead>
+                            <tbody id="winols-cmp-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <input type="file" id="winols-cmp-input-a" accept=".bin,.ori,.hex,.rom" hidden>
+                <input type="file" id="winols-cmp-input-b" accept=".bin,.ori,.hex,.rom" hidden>
+            </div>
         </section>
 
         <!-- ==================== BASE DE DADOS ==================== -->
@@ -1384,6 +1878,9 @@
     <script src="js/pids.js"></script>
     <script src="js/can.js"></script>
     <script src="js/maps.js"></script>
+    <script src="js/winols.js"></script>
+    <script src="js/uds.js"></script>
+    <script src="js/mode06.js"></script>
     <script src="js/database.js"></script>
 </body>
 </html>

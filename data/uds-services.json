@@ -1,0 +1,878 @@
+{
+  "standard": "ISO 14229 (UDS - Unified Diagnostic Services)",
+  "description": "Serviços de Diagnóstico Unificados para ECUs automotivas",
+  "services": [
+    {
+      "sid": "0x10",
+      "name": "DiagnosticSessionControl",
+      "namePt": "Controle de Sessão de Diagnóstico",
+      "category": "session",
+      "description": "Habilita diferentes sessões de diagnóstico na ECU. Cada sessão oferece um conjunto diferente de serviços e funcionalidades.",
+      "request": "10 [sub-function]",
+      "response": "50 [sub-function] [P2 server max] [P2* server max]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "defaultSession",
+          "namePt": "Sessão Padrão",
+          "description": "Sessão padrão após power-on. Funcionalidades limitadas a diagnósticos básicos."
+        },
+        {
+          "id": "0x02",
+          "name": "programmingSession",
+          "namePt": "Sessão de Programação",
+          "description": "Permite reprogramação/flash da ECU. Requer SecurityAccess prévio."
+        },
+        {
+          "id": "0x03",
+          "name": "extendedDiagnosticSession",
+          "namePt": "Sessão Estendida",
+          "description": "Acesso a diagnósticos avançados, funções de teste e ajustes de I/O."
+        }
+      ]
+    },
+    {
+      "sid": "0x11",
+      "name": "ECUReset",
+      "namePt": "Reset da ECU",
+      "category": "communication",
+      "description": "Solicita à ECU que execute um reset. Diferentes tipos de reset disponíveis.",
+      "request": "11 [sub-function]",
+      "response": "51 [sub-function] [powerDownTime]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "hardReset",
+          "namePt": "Reset Físico",
+          "description": "Simula desconexão e reconexão da alimentação elétrica da ECU."
+        },
+        {
+          "id": "0x02",
+          "name": "keyOffOnReset",
+          "namePt": "Reset Chave Off/On",
+          "description": "Simula ciclo de ignição desligada/ligada."
+        },
+        {
+          "id": "0x03",
+          "name": "softReset",
+          "namePt": "Reset por Software",
+          "description": "Reinicialização do software da ECU sem perda de alimentação."
+        }
+      ]
+    },
+    {
+      "sid": "0x14",
+      "name": "ClearDiagnosticInformation",
+      "namePt": "Limpar Informação de Diagnóstico",
+      "category": "dtc",
+      "description": "Limpa DTCs e informações associadas (freeze frames, status bits) da memória da ECU.",
+      "request": "14 [groupOfDTC (3 bytes)]",
+      "response": "54",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x19",
+      "name": "ReadDTCInformation",
+      "namePt": "Ler Informação de DTC",
+      "category": "dtc",
+      "description": "Lê o status e informações detalhadas dos códigos de falha (DTCs) armazenados na ECU.",
+      "request": "19 [sub-function] [parameters]",
+      "response": "59 [sub-function] [DTC data]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "reportNumberOfDTCByStatusMask",
+          "namePt": "Número de DTCs por Máscara de Status",
+          "description": "Retorna a quantidade de DTCs que correspondem à máscara de status fornecida."
+        },
+        {
+          "id": "0x02",
+          "name": "reportDTCByStatusMask",
+          "namePt": "DTCs por Máscara de Status",
+          "description": "Lista todos os DTCs cujo status corresponde à máscara fornecida."
+        },
+        {
+          "id": "0x03",
+          "name": "reportDTCSnapshotIdentification",
+          "namePt": "Identificação de Snapshot de DTC",
+          "description": "Identifica quais snapshots de dados estão disponíveis para cada DTC."
+        },
+        {
+          "id": "0x04",
+          "name": "reportDTCSnapshotRecordByDTCNumber",
+          "namePt": "Registro de Snapshot por Número de DTC",
+          "description": "Lê os dados do snapshot (freeze frame) associados a um DTC específico."
+        },
+        {
+          "id": "0x05",
+          "name": "reportDTCStoredDataByRecordNumber",
+          "namePt": "Dados Armazenados por Número de Registro",
+          "description": "Lê dados armazenados associados a DTCs pelo número do registro."
+        },
+        {
+          "id": "0x06",
+          "name": "reportDTCExtDataRecordByDTCNumber",
+          "namePt": "Dados Estendidos por Número de DTC",
+          "description": "Lê registros de dados estendidos de um DTC específico (contadores, condições de ocorrência)."
+        },
+        {
+          "id": "0x07",
+          "name": "reportNumberOfDTCBySeverityMaskRecord",
+          "namePt": "Número de DTCs por Máscara de Severidade",
+          "description": "Retorna a quantidade de DTCs filtrados por severidade e status."
+        },
+        {
+          "id": "0x08",
+          "name": "reportDTCBySeverityMaskRecord",
+          "namePt": "DTCs por Máscara de Severidade",
+          "description": "Lista DTCs filtrados por nível de severidade e máscara de status."
+        },
+        {
+          "id": "0x09",
+          "name": "reportSeverityInfoOfDTC",
+          "namePt": "Informação de Severidade do DTC",
+          "description": "Retorna o nível de severidade e classe funcional de um DTC específico."
+        },
+        {
+          "id": "0x0A",
+          "name": "reportSupportedDTC",
+          "namePt": "DTCs Suportados",
+          "description": "Lista todos os DTCs suportados pela ECU, independente do status."
+        },
+        {
+          "id": "0x0B",
+          "name": "reportFirstTestFailedDTC",
+          "namePt": "Primeiro DTC com Falha de Teste",
+          "description": "Retorna o primeiro DTC que apresentou falha de teste desde a última limpeza."
+        },
+        {
+          "id": "0x0C",
+          "name": "reportFirstConfirmedDTC",
+          "namePt": "Primeiro DTC Confirmado",
+          "description": "Retorna o primeiro DTC que foi confirmado desde a última limpeza."
+        },
+        {
+          "id": "0x0D",
+          "name": "reportMostRecentTestFailedDTC",
+          "namePt": "DTC Mais Recente com Falha de Teste",
+          "description": "Retorna o DTC mais recente que falhou no teste de monitoramento."
+        },
+        {
+          "id": "0x0E",
+          "name": "reportMostRecentConfirmedDTC",
+          "namePt": "DTC Confirmado Mais Recente",
+          "description": "Retorna o DTC confirmado mais recentemente."
+        },
+        {
+          "id": "0x14",
+          "name": "reportDTCFaultDetectionCounter",
+          "namePt": "Contador de Detecção de Falha do DTC",
+          "description": "Retorna o valor do contador de detecção de falhas para DTCs pendentes."
+        },
+        {
+          "id": "0x15",
+          "name": "reportDTCWithPermanentStatus",
+          "namePt": "DTCs com Status Permanente",
+          "description": "Lista DTCs com status permanente que persistem mesmo após limpeza manual."
+        }
+      ]
+    },
+    {
+      "sid": "0x22",
+      "name": "ReadDataByIdentifier",
+      "namePt": "Ler Dados por Identificador",
+      "category": "data",
+      "description": "Lê valores de dados identificados por um DID (Data Identifier) de 2 bytes.",
+      "request": "22 [DID high byte] [DID low byte]",
+      "response": "62 [DID high byte] [DID low byte] [data]",
+      "commonDIDs": [
+        {
+          "did": "0xF186",
+          "name": "ActiveDiagnosticSession",
+          "namePt": "Sessão de Diagnóstico Ativa",
+          "description": "Retorna a sessão de diagnóstico atualmente ativa."
+        },
+        {
+          "did": "0xF187",
+          "name": "VehicleManufacturerSparePartNumber",
+          "namePt": "Número da Peça de Reposição",
+          "description": "Número da peça de reposição definido pelo fabricante do veículo."
+        },
+        {
+          "did": "0xF188",
+          "name": "VehicleManufacturerECUSoftwareNumber",
+          "namePt": "Versão do Software da ECU",
+          "description": "Número/versão do software da ECU definido pelo fabricante."
+        },
+        {
+          "did": "0xF189",
+          "name": "VehicleManufacturerECUHardwareNumber",
+          "namePt": "Versão do Hardware da ECU",
+          "description": "Número/versão do hardware da ECU definido pelo fabricante."
+        },
+        {
+          "did": "0xF18A",
+          "name": "SystemSupplierIdentifier",
+          "namePt": "Identificador do Fornecedor do Sistema",
+          "description": "Identificação do fornecedor/fabricante do sistema/ECU."
+        },
+        {
+          "did": "0xF18B",
+          "name": "ECUManufacturingDate",
+          "namePt": "Data de Fabricação da ECU",
+          "description": "Data de fabricação da ECU em formato BCD (AAAA-MM-DD)."
+        },
+        {
+          "did": "0xF18C",
+          "name": "ECUSerialNumber",
+          "namePt": "Número de Série da ECU",
+          "description": "Número de série único da ECU."
+        },
+        {
+          "did": "0xF190",
+          "name": "VIN",
+          "namePt": "Número de Identificação do Veículo",
+          "description": "VIN - Vehicle Identification Number (17 caracteres alfanuméricos)."
+        },
+        {
+          "did": "0xF191",
+          "name": "HardwareVersionNumber",
+          "namePt": "Número da Versão de Hardware",
+          "description": "Número de versão de hardware da ECU."
+        },
+        {
+          "did": "0xF1A0",
+          "name": "BootSoftwareIdentification",
+          "namePt": "Identificação do Software de Boot",
+          "description": "Versão e identificação do bootloader da ECU."
+        }
+      ],
+      "subfunctions": []
+    },
+    {
+      "sid": "0x23",
+      "name": "ReadMemoryByAddress",
+      "namePt": "Ler Memória por Endereço",
+      "category": "data",
+      "description": "Lê dados diretamente de um endereço de memória da ECU. Requer sessão de diagnóstico apropriada e SecurityAccess.",
+      "request": "23 [addressAndLengthFormatIdentifier] [memoryAddress] [memorySize]",
+      "response": "63 [dataRecord]",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x27",
+      "name": "SecurityAccess",
+      "namePt": "Acesso de Segurança",
+      "category": "session",
+      "description": "Autenticação por desafio-resposta (seed & key) para desbloquear serviços protegidos da ECU.",
+      "request": "27 [sub-function] [securityKey (sendKey only)]",
+      "response": "67 [sub-function] [securitySeed (requestSeed only)]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "requestSeed_Level1",
+          "namePt": "Solicitar Seed - Nível 1",
+          "description": "Solicita o seed (desafio) para o nível de segurança 1."
+        },
+        {
+          "id": "0x02",
+          "name": "sendKey_Level1",
+          "namePt": "Enviar Chave - Nível 1",
+          "description": "Envia a chave calculada a partir do seed para nível de segurança 1."
+        },
+        {
+          "id": "0x03",
+          "name": "requestSeed_Level2",
+          "namePt": "Solicitar Seed - Nível 2",
+          "description": "Solicita o seed (desafio) para o nível de segurança 2."
+        },
+        {
+          "id": "0x04",
+          "name": "sendKey_Level2",
+          "namePt": "Enviar Chave - Nível 2",
+          "description": "Envia a chave calculada a partir do seed para nível de segurança 2."
+        },
+        {
+          "id": "0x05",
+          "name": "requestSeed_Level3",
+          "namePt": "Solicitar Seed - Nível 3",
+          "description": "Solicita o seed para o nível de segurança 3 (acesso mais restrito)."
+        },
+        {
+          "id": "0x06",
+          "name": "sendKey_Level3",
+          "namePt": "Enviar Chave - Nível 3",
+          "description": "Envia a chave calculada para nível de segurança 3."
+        }
+      ]
+    },
+    {
+      "sid": "0x28",
+      "name": "CommunicationControl",
+      "namePt": "Controle de Comunicação",
+      "category": "communication",
+      "description": "Controla a transmissão e/ou recepção de mensagens de comunicação na ECU (mensagens normais e de diagnóstico de rede).",
+      "request": "28 [sub-function] [communicationType]",
+      "response": "68 [sub-function]",
+      "subfunctions": [
+        {
+          "id": "0x00",
+          "name": "enableRxAndTx",
+          "namePt": "Habilitar Recepção e Transmissão",
+          "description": "Habilita tanto a recepção quanto a transmissão de mensagens."
+        },
+        {
+          "id": "0x01",
+          "name": "enableRxAndDisableTx",
+          "namePt": "Habilitar Recepção e Desabilitar Transmissão",
+          "description": "Habilita recepção e desabilita transmissão de mensagens."
+        },
+        {
+          "id": "0x02",
+          "name": "disableRxAndEnableTx",
+          "namePt": "Desabilitar Recepção e Habilitar Transmissão",
+          "description": "Desabilita recepção e habilita transmissão de mensagens."
+        },
+        {
+          "id": "0x03",
+          "name": "disableRxAndTx",
+          "namePt": "Desabilitar Recepção e Transmissão",
+          "description": "Desabilita tanto a recepção quanto a transmissão de mensagens."
+        }
+      ]
+    },
+    {
+      "sid": "0x29",
+      "name": "Authentication",
+      "namePt": "Autenticação",
+      "category": "session",
+      "description": "Mecanismo de autenticação avançado baseado em PKI/certificados, introduzido na ISO 14229-1:2020. Substitui/complementa o SecurityAccess em implementações modernas.",
+      "request": "29 [sub-function] [authenticationData]",
+      "response": "69 [sub-function] [returnValue] [authenticationData]",
+      "subfunctions": [
+        {
+          "id": "0x00",
+          "name": "deAuthenticate",
+          "namePt": "Desautenticar",
+          "description": "Remove a autenticação previamente estabelecida."
+        },
+        {
+          "id": "0x01",
+          "name": "verifyCertificateUnidirectional",
+          "namePt": "Verificar Certificado Unidirecional",
+          "description": "Autenticação unidirecional usando certificado digital do tester."
+        },
+        {
+          "id": "0x02",
+          "name": "verifyCertificateBidirectional",
+          "namePt": "Verificar Certificado Bidirecional",
+          "description": "Autenticação bidirecional com troca mútua de certificados (tester e ECU)."
+        },
+        {
+          "id": "0x03",
+          "name": "proofOfOwnership",
+          "namePt": "Prova de Propriedade",
+          "description": "Demonstra posse da chave privada correspondente ao certificado apresentado."
+        },
+        {
+          "id": "0x04",
+          "name": "transmitCertificate",
+          "namePt": "Transmitir Certificado",
+          "description": "Envia certificado digital adicional para a ECU."
+        },
+        {
+          "id": "0x05",
+          "name": "requestChallengeForAuthentication",
+          "namePt": "Solicitar Desafio para Autenticação",
+          "description": "Solicita um desafio (nonce/challenge) para o processo de autenticação."
+        },
+        {
+          "id": "0x06",
+          "name": "verifyProofOfOwnershipUnidirectional",
+          "namePt": "Verificar Prova de Propriedade Unidirecional",
+          "description": "Verifica a prova de propriedade em autenticação unidirecional."
+        },
+        {
+          "id": "0x07",
+          "name": "verifyProofOfOwnershipBidirectional",
+          "namePt": "Verificar Prova de Propriedade Bidirecional",
+          "description": "Verifica a prova de propriedade em autenticação bidirecional."
+        },
+        {
+          "id": "0x08",
+          "name": "authenticationConfiguration",
+          "namePt": "Configuração de Autenticação",
+          "description": "Consulta os parâmetros e algoritmos de autenticação suportados pela ECU."
+        }
+      ]
+    },
+    {
+      "sid": "0x2A",
+      "name": "ReadDataByPeriodicIdentifier",
+      "namePt": "Ler Dados por Identificador Periódico",
+      "category": "data",
+      "description": "Solicita à ECU o envio periódico e automático de dados identificados por um periodicDataIdentifier.",
+      "request": "2A [transmissionMode] [periodicDID1] [periodicDID2] ...",
+      "response": "6A [periodicDID] [data] (enviado periodicamente)",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "sendAtSlowRate",
+          "namePt": "Enviar em Taxa Lenta",
+          "description": "Transmite dados periodicamente em taxa lenta (tipicamente a cada 2-5 segundos)."
+        },
+        {
+          "id": "0x02",
+          "name": "sendAtMediumRate",
+          "namePt": "Enviar em Taxa Média",
+          "description": "Transmite dados periodicamente em taxa média (tipicamente a cada 500ms-1s)."
+        },
+        {
+          "id": "0x03",
+          "name": "sendAtFastRate",
+          "namePt": "Enviar em Taxa Rápida",
+          "description": "Transmite dados periodicamente em taxa rápida (tipicamente a cada 100-200ms)."
+        },
+        {
+          "id": "0x04",
+          "name": "stopSending",
+          "namePt": "Parar Envio",
+          "description": "Interrompe o envio periódico de um ou mais identificadores."
+        }
+      ]
+    },
+    {
+      "sid": "0x2E",
+      "name": "WriteDataByIdentifier",
+      "namePt": "Escrever Dados por Identificador",
+      "category": "data",
+      "description": "Escreve dados em um registro identificado por DID na ECU. Usado para configuração e personalização. Requer sessão e segurança apropriadas.",
+      "request": "2E [DID high byte] [DID low byte] [dataRecord]",
+      "response": "6E [DID high byte] [DID low byte]",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x2F",
+      "name": "InputOutputControlByIdentifier",
+      "namePt": "Controle de Entrada/Saída por Identificador",
+      "category": "io",
+      "description": "Controla sinais de entrada/saída de atuadores e periféricos da ECU. Permite testes de atuação e simulação de sinais.",
+      "request": "2F [DID high byte] [DID low byte] [controlOptionRecord] [controlEnableMaskRecord]",
+      "response": "6F [DID high byte] [DID low byte] [controlStatusRecord]",
+      "subfunctions": [
+        {
+          "id": "0x00",
+          "name": "returnControlToECU",
+          "namePt": "Devolver Controle para ECU",
+          "description": "Devolve o controle do atuador/sinal de volta para a ECU (modo normal)."
+        },
+        {
+          "id": "0x01",
+          "name": "resetToDefault",
+          "namePt": "Resetar para Padrão",
+          "description": "Redefine o atuador/sinal para o valor padrão de fábrica."
+        },
+        {
+          "id": "0x02",
+          "name": "freezeCurrentState",
+          "namePt": "Congelar Estado Atual",
+          "description": "Congela o atuador/sinal no valor atual, ignorando comandos da ECU."
+        },
+        {
+          "id": "0x03",
+          "name": "shortTermAdjustment",
+          "namePt": "Ajuste de Curta Duração",
+          "description": "Define temporariamente um valor específico para o atuador/sinal."
+        }
+      ]
+    },
+    {
+      "sid": "0x31",
+      "name": "RoutineControl",
+      "namePt": "Controle de Rotina",
+      "category": "routine",
+      "description": "Inicia, para ou solicita resultados de rotinas internas da ECU (autotestes, calibrações, atuações sequenciais).",
+      "request": "31 [sub-function] [routineIdentifier (2 bytes)] [routineOptionRecord]",
+      "response": "71 [sub-function] [routineIdentifier (2 bytes)] [routineInfo] [routineStatusRecord]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "startRoutine",
+          "namePt": "Iniciar Rotina",
+          "description": "Inicia a execução de uma rotina identificada pelo routineIdentifier."
+        },
+        {
+          "id": "0x02",
+          "name": "stopRoutine",
+          "namePt": "Parar Rotina",
+          "description": "Interrompe a execução de uma rotina em andamento."
+        },
+        {
+          "id": "0x03",
+          "name": "requestRoutineResults",
+          "namePt": "Solicitar Resultados da Rotina",
+          "description": "Solicita os resultados de uma rotina previamente executada."
+        }
+      ]
+    },
+    {
+      "sid": "0x34",
+      "name": "RequestDownload",
+      "namePt": "Solicitar Download",
+      "category": "upload_download",
+      "description": "Inicia o processo de download de dados do tester para a ECU (ex: atualização de firmware). Negocia tamanho do bloco e formato de compressão.",
+      "request": "34 [dataFormatIdentifier] [addressAndLengthFormatIdentifier] [memoryAddress] [memorySize]",
+      "response": "74 [lengthFormatIdentifier] [maxNumberOfBlockLength]",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x35",
+      "name": "RequestUpload",
+      "namePt": "Solicitar Upload",
+      "category": "upload_download",
+      "description": "Inicia o processo de upload de dados da ECU para o tester (leitura de memória/calibração). Negocia parâmetros de transferência.",
+      "request": "35 [dataFormatIdentifier] [addressAndLengthFormatIdentifier] [memoryAddress] [memorySize]",
+      "response": "75 [lengthFormatIdentifier] [maxNumberOfBlockLength]",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x36",
+      "name": "TransferData",
+      "namePt": "Transferir Dados",
+      "category": "upload_download",
+      "description": "Transfere blocos de dados entre tester e ECU após RequestDownload ou RequestUpload. Utiliza contador de sequência de blocos.",
+      "request": "36 [blockSequenceCounter] [transferRequestParameterRecord]",
+      "response": "76 [blockSequenceCounter] [transferResponseParameterRecord]",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x37",
+      "name": "RequestTransferExit",
+      "namePt": "Solicitar Fim de Transferência",
+      "category": "upload_download",
+      "description": "Finaliza o processo de transferência de dados iniciado por RequestDownload ou RequestUpload.",
+      "request": "37 [transferRequestParameterRecord]",
+      "response": "77 [transferResponseParameterRecord]",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x38",
+      "name": "RequestFileTransfer",
+      "namePt": "Solicitar Transferência de Arquivo",
+      "category": "upload_download",
+      "description": "Permite operações com o sistema de arquivos da ECU: adicionar, deletar, substituir ou ler arquivos.",
+      "request": "38 [modeOfOperation] [filePathAndNameLength] [filePathAndName] [dataFormatIdentifier] [fileSizeParameterLength] [fileSizeUncompressed] [fileSizeCompressed]",
+      "response": "78 [modeOfOperation] [lengthFormatIdentifier] [maxNumberOfBlockLength] [dataFormatIdentifier] [fileSizeOrDirInfoParameterLength] [fileSizeUncompressedOrDirInfoLength]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "addFile",
+          "namePt": "Adicionar Arquivo",
+          "description": "Adiciona um novo arquivo ao sistema de arquivos da ECU."
+        },
+        {
+          "id": "0x02",
+          "name": "deleteFile",
+          "namePt": "Deletar Arquivo",
+          "description": "Deleta um arquivo do sistema de arquivos da ECU."
+        },
+        {
+          "id": "0x03",
+          "name": "replaceFile",
+          "namePt": "Substituir Arquivo",
+          "description": "Substitui um arquivo existente no sistema de arquivos da ECU."
+        },
+        {
+          "id": "0x04",
+          "name": "readFile",
+          "namePt": "Ler Arquivo",
+          "description": "Lê um arquivo do sistema de arquivos da ECU."
+        },
+        {
+          "id": "0x05",
+          "name": "readDir",
+          "namePt": "Ler Diretório",
+          "description": "Lista o conteúdo de um diretório no sistema de arquivos da ECU."
+        }
+      ]
+    },
+    {
+      "sid": "0x3E",
+      "name": "TesterPresent",
+      "namePt": "Tester Presente",
+      "category": "communication",
+      "description": "Mantém a sessão de diagnóstico ativa, evitando timeout e retorno à sessão padrão. Enviado periodicamente pelo tester.",
+      "request": "3E [sub-function]",
+      "response": "7E [sub-function] (somente se sub-function = 0x00)",
+      "subfunctions": [
+        {
+          "id": "0x00",
+          "name": "zeroSubFunction",
+          "namePt": "Com Resposta",
+          "description": "Envia TesterPresent e aguarda resposta positiva da ECU."
+        },
+        {
+          "id": "0x80",
+          "name": "suppressPositiveResponseBit",
+          "namePt": "Sem Resposta",
+          "description": "Envia TesterPresent sem solicitar resposta da ECU (bit de supressão ativo)."
+        }
+      ]
+    },
+    {
+      "sid": "0x84",
+      "name": "SecuredDataTransmission",
+      "namePt": "Transmissão Segura de Dados",
+      "category": "other",
+      "description": "Encapsula outros serviços UDS em uma camada de segurança (criptografia/assinatura) para transmissão protegida.",
+      "request": "84 [securityDataRequestRecord]",
+      "response": "C4 [securityDataResponseRecord]",
+      "subfunctions": []
+    },
+    {
+      "sid": "0x85",
+      "name": "ControlDTCSetting",
+      "namePt": "Controle de Configuração de DTC",
+      "category": "communication",
+      "description": "Habilita ou desabilita o registro de DTCs na ECU. Usado durante procedimentos de teste e programação para evitar falsos DTCs.",
+      "request": "85 [sub-function] [DTCSettingControlOptionRecord]",
+      "response": "C5 [sub-function]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "on",
+          "namePt": "Ativar Registro de DTC",
+          "description": "Reativa o registro/armazenamento de DTCs na ECU."
+        },
+        {
+          "id": "0x02",
+          "name": "off",
+          "namePt": "Desativar Registro de DTC",
+          "description": "Desativa temporariamente o registro de DTCs para evitar falsos positivos durante testes."
+        }
+      ]
+    },
+    {
+      "sid": "0x86",
+      "name": "ResponseOnEvent",
+      "namePt": "Resposta por Evento",
+      "category": "other",
+      "description": "Configura a ECU para enviar respostas automaticamente quando determinados eventos ocorrem (ex: mudança de DTC, valor de DID atinge limiar).",
+      "request": "86 [sub-function] [eventType] [serviceToRespondTo]",
+      "response": "C6 [sub-function] [numberOfIdentifiedEvents] [eventWindowTime] [serviceToRespondToRecord]",
+      "subfunctions": [
+        {
+          "id": "0x00",
+          "name": "stopResponseOnEvent",
+          "namePt": "Parar Resposta por Evento",
+          "description": "Interrompe a monitoração e envio de respostas baseadas em eventos."
+        },
+        {
+          "id": "0x01",
+          "name": "onDTCStatusChange",
+          "namePt": "Na Mudança de Status de DTC",
+          "description": "Dispara resposta quando o status de um DTC muda."
+        },
+        {
+          "id": "0x02",
+          "name": "onTimerInterrupt",
+          "namePt": "Na Interrupção por Timer",
+          "description": "Dispara resposta em intervalos de tempo configurados."
+        },
+        {
+          "id": "0x03",
+          "name": "onChangeOfDataIdentifier",
+          "namePt": "Na Mudança de Identificador de Dados",
+          "description": "Dispara resposta quando o valor de um DID específico muda."
+        },
+        {
+          "id": "0x04",
+          "name": "reportActivatedEvents",
+          "namePt": "Reportar Eventos Ativados",
+          "description": "Retorna a lista de eventos atualmente configurados e ativos."
+        },
+        {
+          "id": "0x05",
+          "name": "startResponseOnEvent",
+          "namePt": "Iniciar Resposta por Evento",
+          "description": "Ativa a monitoração de eventos previamente configurados."
+        },
+        {
+          "id": "0x06",
+          "name": "clearResponseOnEvent",
+          "namePt": "Limpar Resposta por Evento",
+          "description": "Remove todas as configurações de resposta por evento."
+        },
+        {
+          "id": "0x07",
+          "name": "onComparisonOfValues",
+          "namePt": "Na Comparação de Valores",
+          "description": "Dispara resposta quando um valor atinge um limiar configurado."
+        }
+      ]
+    },
+    {
+      "sid": "0x87",
+      "name": "LinkControl",
+      "namePt": "Controle de Enlace",
+      "category": "other",
+      "description": "Controla os parâmetros da camada de comunicação (baud rate, modo de transmissão). Usado para otimizar velocidade de transferência durante atualizações.",
+      "request": "87 [sub-function] [linkBaudrateRecord]",
+      "response": "C7 [sub-function]",
+      "subfunctions": [
+        {
+          "id": "0x01",
+          "name": "verifyModeTransitionWithFixedParameter",
+          "namePt": "Verificar Transição com Parâmetro Fixo",
+          "description": "Solicita verificação de transição para baud rate fixo predefinido."
+        },
+        {
+          "id": "0x02",
+          "name": "verifyModeTransitionWithSpecificParameter",
+          "namePt": "Verificar Transição com Parâmetro Específico",
+          "description": "Solicita verificação de transição para baud rate específico informado."
+        },
+        {
+          "id": "0x03",
+          "name": "transitionMode",
+          "namePt": "Executar Transição",
+          "description": "Executa a transição de baud rate previamente verificada."
+        }
+      ]
+    }
+  ],
+  "nrc": [
+    {
+      "code": "0x10",
+      "name": "generalReject",
+      "namePt": "Rejeição Geral",
+      "description": "O serviço foi rejeitado pela ECU sem um motivo específico identificado. Pode indicar um erro interno da ECU."
+    },
+    {
+      "code": "0x11",
+      "name": "serviceNotSupported",
+      "namePt": "Serviço Não Suportado",
+      "description": "O serviço solicitado não é implementado ou não está disponível nesta ECU."
+    },
+    {
+      "code": "0x12",
+      "name": "subFunctionNotSupported",
+      "namePt": "Sub-função Não Suportada",
+      "description": "A sub-função solicitada não é suportada pelo serviço na ECU."
+    },
+    {
+      "code": "0x13",
+      "name": "incorrectMessageLengthOrInvalidFormat",
+      "namePt": "Comprimento de Mensagem Incorreto ou Formato Inválido",
+      "description": "A mensagem recebida tem comprimento incorreto ou formato inválido para o serviço solicitado."
+    },
+    {
+      "code": "0x14",
+      "name": "responseTooLong",
+      "namePt": "Resposta Muito Longa",
+      "description": "A resposta gerada excede o tamanho máximo permitido pelo protocolo de transporte."
+    },
+    {
+      "code": "0x21",
+      "name": "busyRepeatRequest",
+      "namePt": "Ocupado - Repetir Solicitação",
+      "description": "A ECU está temporariamente ocupada processando outra solicitação. O tester deve repetir a solicitação após um intervalo."
+    },
+    {
+      "code": "0x22",
+      "name": "conditionsNotCorrect",
+      "namePt": "Condições Não Corretas",
+      "description": "As condições necessárias para executar o serviço não estão atendidas (ex: motor ligado, velocidade zero, temperatura)."
+    },
+    {
+      "code": "0x24",
+      "name": "requestSequenceError",
+      "namePt": "Erro de Sequência de Solicitação",
+      "description": "A solicitação foi enviada fora da sequência esperada (ex: sendKey sem requestSeed prévio, TransferData sem RequestDownload)."
+    },
+    {
+      "code": "0x25",
+      "name": "noResponseFromSubnetComponent",
+      "namePt": "Sem Resposta de Componente da Sub-rede",
+      "description": "A ECU gateway não recebeu resposta de uma ECU na sub-rede ao encaminhar a solicitação."
+    },
+    {
+      "code": "0x26",
+      "name": "failurePreventsExecutionOfRequestedAction",
+      "namePt": "Falha Impede Execução da Ação Solicitada",
+      "description": "Uma falha interna na ECU impede a execução do serviço solicitado."
+    },
+    {
+      "code": "0x31",
+      "name": "requestOutOfRange",
+      "namePt": "Solicitação Fora de Faixa",
+      "description": "Um parâmetro na solicitação está fora da faixa permitida (ex: DID inexistente, endereço de memória inválido)."
+    },
+    {
+      "code": "0x33",
+      "name": "securityAccessDenied",
+      "namePt": "Acesso de Segurança Negado",
+      "description": "O serviço requer SecurityAccess e a ECU não está desbloqueada no nível necessário."
+    },
+    {
+      "code": "0x35",
+      "name": "invalidKey",
+      "namePt": "Chave Inválida",
+      "description": "A chave de segurança enviada não corresponde à esperada pela ECU."
+    },
+    {
+      "code": "0x36",
+      "name": "exceededNumberOfAttempts",
+      "namePt": "Número de Tentativas Excedido",
+      "description": "O número máximo de tentativas de SecurityAccess foi excedido. ECU entra em modo de bloqueio temporário."
+    },
+    {
+      "code": "0x37",
+      "name": "requiredTimeDelayNotExpired",
+      "namePt": "Tempo de Espera Obrigatório Não Expirado",
+      "description": "O tempo de penalidade após exceder tentativas de SecurityAccess ainda não expirou."
+    },
+    {
+      "code": "0x70",
+      "name": "uploadDownloadNotAccepted",
+      "namePt": "Upload/Download Não Aceito",
+      "description": "A solicitação de upload ou download foi rejeitada pela ECU (condições inadequadas ou parâmetros inválidos)."
+    },
+    {
+      "code": "0x71",
+      "name": "transferDataSuspended",
+      "namePt": "Transferência de Dados Suspensa",
+      "description": "A transferência de dados foi suspensa devido a um erro durante o processo."
+    },
+    {
+      "code": "0x72",
+      "name": "generalProgrammingFailure",
+      "namePt": "Falha Geral de Programação",
+      "description": "Ocorreu um erro durante a programação/gravação na memória da ECU (ex: falha de escrita em flash)."
+    },
+    {
+      "code": "0x73",
+      "name": "wrongBlockSequenceCounter",
+      "namePt": "Contador de Sequência de Bloco Incorreto",
+      "description": "O contador de sequência do bloco de dados transferido não corresponde ao esperado pela ECU."
+    },
+    {
+      "code": "0x78",
+      "name": "requestCorrectlyReceivedResponsePending",
+      "namePt": "Solicitação Recebida - Resposta Pendente",
+      "description": "A ECU recebeu a solicitação corretamente mas precisa de mais tempo para processá-la. Resposta final será enviada posteriormente."
+    },
+    {
+      "code": "0x7E",
+      "name": "subFunctionNotSupportedInActiveSession",
+      "namePt": "Sub-função Não Suportada na Sessão Ativa",
+      "description": "A sub-função solicitada existe mas não está disponível na sessão de diagnóstico atualmente ativa."
+    },
+    {
+      "code": "0x7F",
+      "name": "serviceNotSupportedInActiveSession",
+      "namePt": "Serviço Não Suportado na Sessão Ativa",
+      "description": "O serviço solicitado existe mas não está disponível na sessão de diagnóstico atualmente ativa. Troque para a sessão correta."
+    }
+  ]
+}

@@ -1,8 +1,11 @@
 /* ============================================
    Math Tools Pro - Módulo de Sinais CAN Bus
+   Versão 2.0 - Com parser DBC
    ============================================ */
 
 const CANModule = {
+    parsedDBC: null,
+
     init() {
         this.renderCommonSignals();
         this.renderVehicles();
@@ -85,9 +88,185 @@ const CANModule = {
         container.innerHTML = html;
     },
 
+    parseDBC(text) {
+        const result = {
+            version: '',
+            messages: [],
+            signalCount: 0
+        };
+
+        const lines = text.split('\n');
+        let currentMsg = null;
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+
+            if (line.startsWith('VERSION')) {
+                const match = line.match(/VERSION\s+"([^"]*)"/);
+                if (match) result.version = match[1];
+                continue;
+            }
+
+            const msgMatch = line.match(/^BO_\s+(\d+)\s+(\w+)\s*:\s*(\d+)\s+(\w+)/);
+            if (msgMatch) {
+                currentMsg = {
+                    id: parseInt(msgMatch[1]),
+                    idHex: '0x' + parseInt(msgMatch[1]).toString(16).toUpperCase().padStart(3, '0'),
+                    name: msgMatch[2],
+                    dlc: parseInt(msgMatch[3]),
+                    sender: msgMatch[4],
+                    signals: []
+                };
+                result.messages.push(currentMsg);
+                continue;
+            }
+
+            const sigMatch = line.match(/^\s*SG_\s+(\w+)\s*:\s*(\d+)\|(\d+)@([01])([+-])\s*\(\s*([^,]+)\s*,\s*([^)]+)\s*\)\s*\[\s*([^|]*)\|([^\]]*)\]\s*"([^"]*)"\s*(.*)/);
+            if (sigMatch && currentMsg) {
+                const signal = {
+                    name: sigMatch[1],
+                    startBit: parseInt(sigMatch[2]),
+                    bitLength: parseInt(sigMatch[3]),
+                    byteOrder: sigMatch[4] === '1' ? 'Little Endian' : 'Big Endian',
+                    valueType: sigMatch[5] === '+' ? 'Unsigned' : 'Signed',
+                    factor: parseFloat(sigMatch[6]),
+                    offset: parseFloat(sigMatch[7]),
+                    min: parseFloat(sigMatch[8]),
+                    max: parseFloat(sigMatch[9]),
+                    unit: sigMatch[10],
+                    receivers: sigMatch[11] ? sigMatch[11].trim().split(',').map(r => r.trim()) : []
+                };
+                currentMsg.signals.push(signal);
+                result.signalCount++;
+                continue;
+            }
+        }
+
+        return result;
+    },
+
+    handleDBCUpload(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const parsed = this.parseDBC(e.target.result);
+                this.parsedDBC = parsed;
+                this.renderDBCResults(parsed, file.name);
+                App.toast(`DBC "${file.name}" parseado: ${parsed.messages.length} mensagens, ${parsed.signalCount} sinais`, 'success');
+            } catch (err) {
+                App.toast('Erro ao parsear DBC: ' + err.message, 'error');
+            }
+        };
+        reader.readAsText(file);
+    },
+
+    renderDBCResults(dbc, filename) {
+        const container = document.getElementById('dbc-results');
+        if (!container) return;
+
+        let html = `
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1rem;margin-bottom:1rem;">
+                <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+                    <span class="map-badge"><i class="fas fa-file-code"></i> ${filename}</span>
+                    ${dbc.version ? `<span class="map-badge secondary">Versão: ${dbc.version}</span>` : ''}
+                    <span class="map-badge secondary">${dbc.messages.length} mensagens</span>
+                    <span class="map-badge secondary">${dbc.signalCount} sinais</span>
+                </div>
+            </div>
+
+            <div class="search-box" style="margin-bottom:1rem;">
+                <i class="fas fa-search"></i>
+                <input type="text" id="dbc-signal-search" placeholder="Buscar mensagem ou sinal (ex: EngineRPM, SteeringAngle...)">
+            </div>
+
+            <div id="dbc-messages-list">`;
+
+        dbc.messages.forEach((msg, idx) => {
+            if (msg.signals.length === 0) return;
+
+            html += `
+                <div class="card" style="margin-bottom:0.75rem;">
+                    <div class="card-header" style="cursor:pointer;padding:0.6rem 1rem;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+                        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                            <span style="font-family:Consolas;font-weight:700;color:var(--accent-blue);font-size:0.9rem;background:var(--bg-secondary);padding:0.2rem 0.5rem;border-radius:4px;">${msg.idHex}</span>
+                            <strong>${msg.name}</strong>
+                            <span style="color:var(--text-muted);font-size:0.8rem;">DLC: ${msg.dlc} | ${msg.signals.length} sinais | TX: ${msg.sender}</span>
+                            <i class="fas fa-chevron-down" style="margin-left:auto;color:var(--text-muted);font-size:0.75rem;"></i>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding:0;display:${idx < 5 ? 'block' : 'none'};">
+                        <table class="pin-table">
+                            <thead>
+                                <tr>
+                                    <th>Sinal</th>
+                                    <th style="width:70px;">Start Bit</th>
+                                    <th style="width:60px;">Length</th>
+                                    <th style="width:100px;">Byte Order</th>
+                                    <th style="width:80px;">Factor</th>
+                                    <th style="width:70px;">Offset</th>
+                                    <th style="width:100px;">Range</th>
+                                    <th style="width:60px;">Unit</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
+
+            msg.signals.forEach(sig => {
+                html += `<tr>
+                    <td style="font-family:Consolas;font-weight:600;color:var(--accent-cyan);font-size:0.83rem;">${sig.name}</td>
+                    <td style="text-align:center;">${sig.startBit}</td>
+                    <td style="text-align:center;">${sig.bitLength}</td>
+                    <td style="font-size:0.78rem;">${sig.byteOrder} ${sig.valueType === 'Signed' ? '(S)' : '(U)'}</td>
+                    <td style="text-align:center;font-family:Consolas;font-size:0.82rem;">${sig.factor}</td>
+                    <td style="text-align:center;font-family:Consolas;font-size:0.82rem;">${sig.offset}</td>
+                    <td style="text-align:center;font-size:0.8rem;">${sig.min} ~ ${sig.max}</td>
+                    <td style="text-align:center;"><span style="background:var(--bg-secondary);padding:0.1rem 0.3rem;border-radius:3px;font-size:0.78rem;">${sig.unit || '-'}</span></td>
+                </tr>`;
+            });
+
+            html += '</tbody></table></div></div>';
+        });
+
+        html += '</div>';
+        container.innerHTML = html;
+        container.style.display = 'block';
+
+        const searchInput = document.getElementById('dbc-signal-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const q = e.target.value.toLowerCase();
+                document.querySelectorAll('#dbc-messages-list > .card').forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(q) ? '' : 'none';
+                });
+            });
+        }
+    },
+
     setupEvents() {
         document.getElementById('can-search').addEventListener('input', (e) => {
             this.renderVehicles(e.target.value);
         });
+
+        const dbcUploadArea = document.getElementById('dbc-upload-area');
+        const dbcInput = document.getElementById('dbc-file-input');
+
+        if (dbcUploadArea && dbcInput) {
+            dbcUploadArea.addEventListener('click', () => dbcInput.click());
+            dbcUploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dbcUploadArea.style.borderColor = 'var(--accent-blue)';
+            });
+            dbcUploadArea.addEventListener('dragleave', () => {
+                dbcUploadArea.style.borderColor = '';
+            });
+            dbcUploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dbcUploadArea.style.borderColor = '';
+                if (e.dataTransfer.files.length > 0) this.handleDBCUpload(e.dataTransfer.files[0]);
+            });
+            dbcInput.addEventListener('change', () => {
+                if (dbcInput.files.length > 0) this.handleDBCUpload(dbcInput.files[0]);
+            });
+        }
     }
 };
