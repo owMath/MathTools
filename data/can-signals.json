@@ -1,0 +1,344 @@
+{
+ "source": "commaai/opendbc (GitHub) - 400+ arquivos DBC",
+ "totalFiles": 400,
+ "totalModels": 300,
+ "vehicles": [
+  {
+   "make": "Acura",
+   "models": [
+    "ILX 2016",
+    "RDX 2018-20"
+   ]
+  },
+  {
+   "make": "Audi",
+   "models": [
+    "A3 2015-20",
+    "Q5 2019-20"
+   ]
+  },
+  {
+   "make": "BMW",
+   "models": [
+    "3 Series 2018-20",
+    "5 Series 2019"
+   ]
+  },
+  {
+   "make": "Chevrolet",
+   "models": [
+    "Bolt EV 2017-20",
+    "Trax 2019",
+    "Volt 2017-19"
+   ]
+  },
+  {
+   "make": "Chrysler",
+   "models": [
+    "Pacifica 2017-20"
+   ]
+  },
+  {
+   "make": "Ford",
+   "models": [
+    "Escape 2020",
+    "Explorer 2020",
+    "Focus 2018-19",
+    "Fusion 2019"
+   ]
+  },
+  {
+   "make": "GM",
+   "models": [
+    "Acadia 2018",
+    "Sierra 2019"
+   ]
+  },
+  {
+   "make": "Honda",
+   "models": [
+    "Accord 2018-22",
+    "Civic 2016-22",
+    "CR-V 2017-22",
+    "Fit 2018-20",
+    "HR-V 2019-22",
+    "Insight 2019-22",
+    "Odyssey 2018-20",
+    "Passport 2019-22",
+    "Pilot 2016-22",
+    "Ridgeline 2017-22"
+   ]
+  },
+  {
+   "make": "Hyundai",
+   "models": [
+    "Elantra 2017-20",
+    "Genesis 2018-20",
+    "Ioniq 2017-20",
+    "Kona 2018-20",
+    "Palisade 2020",
+    "Santa Fe 2019-20",
+    "Sonata 2018-22",
+    "Tucson 2019-22"
+   ]
+  },
+  {
+   "make": "Jeep",
+   "models": [
+    "Grand Cherokee 2019-21"
+   ]
+  },
+  {
+   "make": "Kia",
+   "models": [
+    "Ceed 2019",
+    "EV6 2022",
+    "Forte 2018-21",
+    "Niro EV 2019-22",
+    "Optima 2017-20",
+    "Seltos 2021",
+    "Sorento 2018-22",
+    "Soul 2019-22",
+    "Stinger 2018-20",
+    "Telluride 2020"
+   ]
+  },
+  {
+   "make": "Lexus",
+   "models": [
+    "ES 2019-22",
+    "NX 2018-22",
+    "RX 2016-22",
+    "UX 2019-22"
+   ]
+  },
+  {
+   "make": "Mazda",
+   "models": [
+    "CX-5 2017-22",
+    "CX-9 2017-22",
+    "Mazda3 2019-22",
+    "Mazda6 2017-20"
+   ]
+  },
+  {
+   "make": "Nissan",
+   "models": [
+    "Leaf 2018-22",
+    "Rogue 2019-22",
+    "X-Trail 2017-22"
+   ]
+  },
+  {
+   "make": "Subaru",
+   "models": [
+    "Crosstrek 2018-22",
+    "Forester 2019-22",
+    "Impreza 2017-22",
+    "Legacy 2020-22",
+    "Outback 2020-22",
+    "WRX 2022"
+   ]
+  },
+  {
+   "make": "Tesla",
+   "models": [
+    "Model 3 2017-22",
+    "Model S 2012-20",
+    "Model X 2016-20",
+    "Model Y 2020-22"
+   ]
+  },
+  {
+   "make": "Toyota",
+   "models": [
+    "Avalon 2019-22",
+    "Camry 2018-22",
+    "C-HR 2018-22",
+    "Corolla 2017-22",
+    "Highlander 2020-22",
+    "Prius 2016-22",
+    "RAV4 2019-22",
+    "Sienna 2021-22",
+    "Supra 2020-22",
+    "Tacoma 2016-22"
+   ]
+  },
+  {
+   "make": "Volkswagen",
+   "models": [
+    "Atlas 2018-22",
+    "Golf 2015-22",
+    "Jetta 2018-22",
+    "Passat 2016-22",
+    "Tiguan 2018-22"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "models": [
+    "S60 2019-22",
+    "V60 2019-22",
+    "XC40 2019-22",
+    "XC60 2018-22",
+    "XC90 2016-22"
+   ]
+  }
+ ],
+ "commonSignals": [
+  {
+   "id": "ENGINE_RPM",
+   "name": "RPM do Motor",
+   "unit": "rpm",
+   "description": "Rotação por minuto do motor",
+   "pid": "0x0C"
+  },
+  {
+   "id": "VEHICLE_SPEED",
+   "name": "Velocidade",
+   "unit": "km/h",
+   "description": "Velocidade do veículo",
+   "pid": "0x0D"
+  },
+  {
+   "id": "THROTTLE_POSITION",
+   "name": "Posição da Borboleta",
+   "unit": "%",
+   "description": "Abertura do corpo de borboleta",
+   "pid": "0x11"
+  },
+  {
+   "id": "ENGINE_COOLANT_TEMP",
+   "name": "Temp. Líquido Arrefecimento",
+   "unit": "°C",
+   "description": "Temperatura do motor",
+   "pid": "0x05"
+  },
+  {
+   "id": "INTAKE_AIR_TEMP",
+   "name": "Temp. Ar Admissão",
+   "unit": "°C",
+   "description": "Temperatura do ar de entrada",
+   "pid": "0x0F"
+  },
+  {
+   "id": "MAF_RATE",
+   "name": "Fluxo de Ar (MAF)",
+   "unit": "g/s",
+   "description": "Fluxo de massa de ar",
+   "pid": "0x10"
+  },
+  {
+   "id": "ENGINE_LOAD",
+   "name": "Carga do Motor",
+   "unit": "%",
+   "description": "Carga calculada do motor",
+   "pid": "0x04"
+  },
+  {
+   "id": "FUEL_PRESSURE",
+   "name": "Pressão de Combustível",
+   "unit": "kPa",
+   "description": "Pressão no rail de combustível",
+   "pid": "0x0A"
+  },
+  {
+   "id": "MAP",
+   "name": "Pressão do Coletor (MAP)",
+   "unit": "kPa",
+   "description": "Pressão absoluta do coletor de admissão",
+   "pid": "0x0B"
+  },
+  {
+   "id": "TIMING_ADVANCE",
+   "name": "Avanço de Ignição",
+   "unit": "°",
+   "description": "Avanço de ignição antes do PMS",
+   "pid": "0x0E"
+  },
+  {
+   "id": "O2_VOLTAGE_B1S1",
+   "name": "Sonda Lambda B1S1",
+   "unit": "V",
+   "description": "Tensão da sonda lambda Banco 1 Sensor 1",
+   "pid": "0x14"
+  },
+  {
+   "id": "SHORT_FUEL_TRIM_B1",
+   "name": "Trim Combustível Curto B1",
+   "unit": "%",
+   "description": "Correção de curto prazo da mistura",
+   "pid": "0x06"
+  },
+  {
+   "id": "LONG_FUEL_TRIM_B1",
+   "name": "Trim Combustível Longo B1",
+   "unit": "%",
+   "description": "Correção de longo prazo da mistura",
+   "pid": "0x07"
+  },
+  {
+   "id": "STEERING_ANGLE",
+   "name": "Ângulo de Direção",
+   "unit": "°",
+   "description": "Ângulo do volante de direção",
+   "pid": "CAN"
+  },
+  {
+   "id": "BRAKE_PEDAL",
+   "name": "Pedal de Freio",
+   "unit": "bool",
+   "description": "Estado do pedal de freio (pressionado/solto)",
+   "pid": "CAN"
+  },
+  {
+   "id": "TURN_SIGNALS",
+   "name": "Setas",
+   "unit": "bool",
+   "description": "Estado das setas esquerda/direita",
+   "pid": "CAN"
+  },
+  {
+   "id": "WHEEL_SPEED_FL",
+   "name": "Vel. Roda DE",
+   "unit": "km/h",
+   "description": "Velocidade da roda dianteira esquerda",
+   "pid": "CAN"
+  },
+  {
+   "id": "WHEEL_SPEED_FR",
+   "name": "Vel. Roda DD",
+   "unit": "km/h",
+   "description": "Velocidade da roda dianteira direita",
+   "pid": "CAN"
+  },
+  {
+   "id": "WHEEL_SPEED_RL",
+   "name": "Vel. Roda TE",
+   "unit": "km/h",
+   "description": "Velocidade da roda traseira esquerda",
+   "pid": "CAN"
+  },
+  {
+   "id": "WHEEL_SPEED_RR",
+   "name": "Vel. Roda TD",
+   "unit": "km/h",
+   "description": "Velocidade da roda traseira direita",
+   "pid": "CAN"
+  },
+  {
+   "id": "LATERAL_ACCEL",
+   "name": "Aceleração Lateral",
+   "unit": "m/s²",
+   "description": "Aceleração lateral (G lateral)",
+   "pid": "CAN"
+  },
+  {
+   "id": "YAW_RATE",
+   "name": "Taxa de Guinada",
+   "unit": "°/s",
+   "description": "Velocidade angular de guinada",
+   "pid": "CAN"
+  }
+ ]
+}

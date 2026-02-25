@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Tools Pro - Ferramentas de Injeção Eletrônica</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-microchip"></i>
+                <span>Math Tools <strong>Pro</strong></span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-section="pinouts">
+                <i class="fas fa-plug"></i>
+                <span>Pinagens de ECU</span>
+            </a>
+            <a href="#" class="nav-item" data-section="dtc">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Códigos de Falha</span>
+            </a>
+            <a href="#" class="nav-item" data-section="checksum">
+                <i class="fas fa-calculator"></i>
+                <span>Checksum & Ferramentas</span>
+            </a>
+            <a href="#" class="nav-item" data-section="pids">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>PIDs OBD-II</span>
+            </a>
+            <a href="#" class="nav-item" data-section="can">
+                <i class="fas fa-project-diagram"></i>
+                <span>Sinais CAN Bus</span>
+            </a>
+            <a href="#" class="nav-item" data-section="maps">
+                <i class="fas fa-map"></i>
+                <span>Mapas de ECU</span>
+            </a>
+            <a href="#" class="nav-item" data-section="database">
+                <i class="fas fa-database"></i>
+                <span>Base de Dados</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span class="version">v1.0.0</span>
+        </div>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+
+        <!-- ==================== DASHBOARD ==================== -->
+        <section class="section active" id="section-dashboard">
+            <div class="section-header">
+                <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                <p>Visão geral das ferramentas de injeção eletrônica</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" data-section-link="pinouts">
+                    <div class="stat-icon blue"><i class="fas fa-plug"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-pinouts">0</h3>
+                        <p>ECUs com Pinagens</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-section-link="dtc">
+                    <div class="stat-icon orange"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-dtc">0</h3>
+                        <p>Códigos de Falha</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-section-link="checksum">
+                    <div class="stat-icon green"><i class="fas fa-calculator"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-checksum">9</h3>
+                        <p>Ferramentas</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-section-link="pids">
+                    <div class="stat-icon purple"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-pids">0</h3>
+                        <p>PIDs OBD-II</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-section-link="can">
+                    <div class="stat-icon green"><i class="fas fa-project-diagram"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-can">0</h3>
+                        <p>Veículos CAN Bus</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-section-link="maps">
+                    <div class="stat-icon blue"><i class="fas fa-map"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-maps">0</h3>
+                        <p>Mapas de ECU</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-plug"></i> Pinagens de ECU</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Consulte pinagens de conectores de ECUs de diversas marcas e modelos. Bosch, Delphi, Siemens, Denso, Continental, Sagem, Visteon, Motorola, Temic, TRW e mais.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> +300 ECUs com diagramas em imagem</li>
+                            <li><i class="fas fa-check"></i> 15+ fabricantes (GitHub + ImmoOff.net)</li>
+                            <li><i class="fas fa-check"></i> Filtro por fabricante e tipo de combustivel</li>
+                            <li><i class="fas fa-check"></i> Visualizacao de diagramas JPG inline</li>
+                            <li><i class="fas fa-check"></i> Exportar para CSV</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('pinouts')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-exclamation-triangle"></i> Códigos de Falha (DTC)</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Base completa de códigos de falha OBD-II genéricos e específicos de fabricantes. Inclui descrição, causas possíveis e soluções.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Busca por código (P0XXX, B0XXX...)</li>
+                            <li><i class="fas fa-check"></i> Filtro por categoria</li>
+                            <li><i class="fas fa-check"></i> Causas e soluções</li>
+                            <li><i class="fas fa-check"></i> Códigos genéricos e específicos</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('dtc')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calculator"></i> Checksum & Ferramentas</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>9 ferramentas completas: calculadora, correção manual e automática (ME7), comparador de binários, conversor e mais.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 6 Algoritmos: Sum8/16/32, XOR8, CRC-16, CRC-32</li>
+                            <li><i class="fas fa-check"></i> Correção manual + Perfil Bosch ME7 automático</li>
+                            <li><i class="fas fa-check"></i> Comparador de binários byte a byte</li>
+                            <li><i class="fas fa-check"></i> Conversor, Duty Cycle, Ferramentas de Bytes</li>
+                            <li><i class="fas fa-check"></i> Perfis de ECU salvos e reutilizáveis</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('checksum')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-tachometer-alt"></i> PIDs OBD-II</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Base completa de parâmetros OBD-II (SAE J1979). Consulte PIDs de dados em tempo real, informações do veículo e mais.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 152 PIDs padrão documentados</li>
+                            <li><i class="fas fa-check"></i> Mode 01 (dados em tempo real)</li>
+                            <li><i class="fas fa-check"></i> Mode 09 (informações do veículo)</li>
+                            <li><i class="fas fa-check"></i> Categorizado por sistema</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('pids')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-project-diagram"></i> Sinais CAN Bus</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Referência de sinais CAN bus do projeto OpenDBC. 300+ modelos de veículos com sinais decodificados.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 400+ arquivos DBC</li>
+                            <li><i class="fas fa-check"></i> 19 marcas, 86+ modelos</li>
+                            <li><i class="fas fa-check"></i> Sinais: RPM, velocidade, direção...</li>
+                            <li><i class="fas fa-check"></i> Fonte: commaai/opendbc (MIT)</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('can')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-map"></i> Mapas de ECU</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Visualize e edite mapas de calibração de ECU em formato 2D (tabela com heatmap) e 3D (superfície interativa). Salve e exporte suas edições.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Visualização 2D com heatmap</li>
+                            <li><i class="fas fa-check"></i> Visualização 3D interativa</li>
+                            <li><i class="fas fa-check"></i> Edição de valores em tempo real</li>
+                            <li><i class="fas fa-check"></i> Salvar e exportar mapas</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="App.navigateTo('maps')">
+                            <i class="fas fa-arrow-right"></i> Acessar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PINAGENS ==================== -->
+        <section class="section" id="section-pinouts">
+            <div class="section-header">
+                <h1><i class="fas fa-plug"></i> Pinagens de ECU</h1>
+                <p>Consulte pinagens de conectores de diversas ECUs</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="pinout-search" placeholder="Buscar ECU (ex: Bosch ME7, Delphi MT05...)">
+                </div>
+                <div class="filter-group">
+                    <select id="pinout-brand-filter">
+                        <option value="">Todos os Fabricantes</option>
+                    </select>
+                    <select id="pinout-type-filter">
+                        <option value="">Todos os Tipos</option>
+                        <option value="gasoline">Gasolina/Flex</option>
+                        <option value="diesel">Diesel</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pinout-container">
+                <div class="pinout-list" id="pinout-list"></div>
+                <div class="pinout-detail" id="pinout-detail">
+                    <div class="empty-state">
+                        <i class="fas fa-plug"></i>
+                        <h3>Selecione uma ECU</h3>
+                        <p>Escolha uma ECU na lista ao lado para ver sua pinagem completa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CÓDIGOS DE FALHA ==================== -->
+        <section class="section" id="section-dtc">
+            <div class="section-header">
+                <h1><i class="fas fa-exclamation-triangle"></i> Códigos de Falha (DTC)</h1>
+                <p>Base de dados de códigos de diagnóstico OBD-II</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="dtc-search" placeholder="Buscar código (ex: P0101, P0300...) ou descrição">
+                </div>
+                <div class="filter-group">
+                    <select id="dtc-category-filter">
+                        <option value="">Todas as Categorias</option>
+                        <option value="P">P - Powertrain (Motor/Transmissão)</option>
+                        <option value="B">B - Body (Carroceria)</option>
+                        <option value="C">C - Chassis (Chassi)</option>
+                        <option value="U">U - Network (Rede/Comunicação)</option>
+                    </select>
+                    <select id="dtc-system-filter">
+                        <option value="">Todos os Sistemas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="dtc-container">
+                <div class="dtc-results" id="dtc-results"></div>
+                <div class="dtc-detail" id="dtc-detail">
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Selecione um Código</h3>
+                        <p>Busque e selecione um código de falha para ver detalhes completos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CHECKSUM & FERRAMENTAS ==================== -->
+        <section class="section" id="section-checksum">
+            <div class="section-header">
+                <h1><i class="fas fa-calculator"></i> Checksum & Ferramentas</h1>
+                <p>Calculadoras, conversores e ferramentas de verificação</p>
+            </div>
+
+            <div class="tools-tabs">
+                <button class="tool-tab active" data-tool="calculator">
+                    <i class="fas fa-calculator"></i> Calculadora de Checksum
+                </button>
+                <button class="tool-tab" data-tool="converter">
+                    <i class="fas fa-exchange-alt"></i> Conversor Hex/Dec/Bin
+                </button>
+                <button class="tool-tab" data-tool="file-checksum">
+                    <i class="fas fa-file-code"></i> Checksum de Arquivo
+                </button>
+                <button class="tool-tab" data-tool="byte-tools">
+                    <i class="fas fa-cogs"></i> Ferramentas de Bytes
+                </button>
+                <button class="tool-tab" data-tool="correction">
+                    <i class="fas fa-wrench"></i> Correção de Checksum
+                </button>
+                <button class="tool-tab" data-tool="me7-profile">
+                    <i class="fas fa-microchip"></i> Perfil ME7
+                </button>
+                <button class="tool-tab" data-tool="bin-compare">
+                    <i class="fas fa-columns"></i> Comparador de Binários
+                </button>
+                <button class="tool-tab" data-tool="profiles">
+                    <i class="fas fa-save"></i> Perfis Salvos
+                </button>
+            </div>
+
+            <!-- Calculadora de Checksum -->
+            <div class="tool-panel active" id="tool-calculator">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calculator"></i> Calculadora de Checksum</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Dados de Entrada (Hexadecimal)</label>
+                            <textarea id="checksum-input" class="code-input" rows="4" placeholder="Cole seus dados hex aqui (ex: 4F 2A 1B 3C D5 E8 7F 00 A1 B2)"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Algoritmo</label>
+                                <select id="checksum-algorithm">
+                                    <option value="sum8">Checksum Sum8</option>
+                                    <option value="sum16">Checksum Sum16</option>
+                                    <option value="sum32">Checksum Sum32</option>
+                                    <option value="xor8">XOR8</option>
+                                    <option value="crc16">CRC-16/CCITT</option>
+                                    <option value="crc32">CRC-32</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-lg" id="btn-calculate-checksum">
+                                    <i class="fas fa-play"></i> Calcular
+                                </button>
+                            </div>
+                        </div>
+                        <div class="result-box" id="checksum-result" style="display:none;">
+                            <div class="result-label">Resultado</div>
+                            <div class="result-grid" id="checksum-result-values"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-info-circle"></i> Sobre os Algoritmos</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="algo-info-grid">
+                            <div class="algo-info">
+                                <h4>Sum8 / Sum16 / Sum32</h4>
+                                <p>Soma simples de todos os bytes, com resultado truncado para 8, 16 ou 32 bits. Usado em muitas ECUs Bosch e Delphi.</p>
+                            </div>
+                            <div class="algo-info">
+                                <h4>XOR8</h4>
+                                <p>Operação XOR de todos os bytes. Comum em protocolos de comunicação serial com ECU (K-Line, ISO 9141).</p>
+                            </div>
+                            <div class="algo-info">
+                                <h4>CRC-16/CCITT</h4>
+                                <p>Polinômio 0x1021 com valor inicial 0xFFFF. Usado em protocolos CAN e em verificação de firmware de ECUs modernas.</p>
+                            </div>
+                            <div class="algo-info">
+                                <h4>CRC-32</h4>
+                                <p>Polinômio padrão IEEE 802.3. Usado em verificações de integridade de arquivos de calibração e firmware completos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversor -->
+            <div class="tool-panel" id="tool-converter">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-exchange-alt"></i> Conversor Hex / Decimal / Binário</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="converter-grid">
+                            <div class="form-group">
+                                <label><i class="fas fa-hashtag"></i> Hexadecimal</label>
+                                <input type="text" id="conv-hex" class="code-input" placeholder="FF">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-sort-numeric-up"></i> Decimal</label>
+                                <input type="text" id="conv-dec" class="code-input" placeholder="255">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-barcode"></i> Binário</label>
+                                <input type="text" id="conv-bin" class="code-input" placeholder="11111111">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 1rem;">
+                            <label><i class="fas fa-font"></i> ASCII</label>
+                            <input type="text" id="conv-ascii" class="code-input" placeholder="Texto">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-gas-pump"></i> Calculadora de Duty Cycle / Tempo de Injeção</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="converter-grid">
+                            <div class="form-group">
+                                <label>RPM do Motor</label>
+                                <input type="number" id="calc-rpm" class="code-input" placeholder="3000" value="3000">
+                            </div>
+                            <div class="form-group">
+                                <label>Tempo de Injeção (ms)</label>
+                                <input type="number" id="calc-inj-time" class="code-input" placeholder="8.5" step="0.1" value="8.5">
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo de Motor</label>
+                                <select id="calc-engine-type" class="code-input">
+                                    <option value="4">4 Tempos</option>
+                                    <option value="2">2 Tempos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="btn-calc-duty" style="margin-top: 1rem;">
+                            <i class="fas fa-play"></i> Calcular Duty Cycle
+                        </button>
+                        <div class="result-box" id="duty-result" style="display:none; margin-top: 1rem;">
+                            <div class="result-label">Resultado</div>
+                            <div class="result-grid" id="duty-result-values"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checksum de Arquivo -->
+            <div class="tool-panel" id="tool-file-checksum">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-file-code"></i> Checksum de Arquivo Binário</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="file-upload-area" id="file-upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h3>Arraste um arquivo .bin aqui</h3>
+                            <p>ou clique para selecionar</p>
+                            <input type="file" id="file-input" accept=".bin,.hex,.dat,.ori,.mod" hidden>
+                        </div>
+                        <div id="file-info" style="display:none;">
+                            <div class="file-details">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Arquivo</label>
+                                        <span id="file-name" class="file-tag"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tamanho</label>
+                                        <span id="file-size" class="file-tag"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row" style="margin-top: 1rem;">
+                                <div class="form-group">
+                                    <label>Offset Inicial (hex)</label>
+                                    <input type="text" id="file-offset-start" class="code-input" placeholder="0x0000" value="0x0000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Offset Final (hex)</label>
+                                    <input type="text" id="file-offset-end" class="code-input" placeholder="Auto (fim do arquivo)">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-lg" id="btn-file-checksum" style="margin-top: 1rem;">
+                                <i class="fas fa-play"></i> Calcular Todos os Checksums
+                            </button>
+                            <div class="result-box" id="file-checksum-result" style="display:none; margin-top: 1rem;">
+                                <div class="result-label">Resultados do Arquivo</div>
+                                <div class="result-grid" id="file-checksum-values"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-eye"></i> Visualizador Hex do Arquivo</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="hex-viewer" class="hex-viewer">
+                            <p class="text-muted">Carregue um arquivo para visualizar o conteúdo em hexadecimal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ferramentas de Bytes -->
+            <div class="tool-panel" id="tool-byte-tools">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-random"></i> Conversor de Byte Order (Endianness)</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Valor Hexadecimal</label>
+                            <input type="text" id="endian-input" class="code-input" placeholder="Ex: 0A1B2C3D">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Big Endian (MSB primeiro)</label>
+                                <input type="text" id="endian-big" class="code-input" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Little Endian (LSB primeiro)</label>
+                                <input type="text" id="endian-little" class="code-input" readonly>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="btn-convert-endian" style="margin-top: 0.5rem;">
+                            <i class="fas fa-exchange-alt"></i> Converter
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-th"></i> Operações Bitwise</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Valor A (hex)</label>
+                                <input type="text" id="bitwise-a" class="code-input" placeholder="FF">
+                            </div>
+                            <div class="form-group">
+                                <label>Operação</label>
+                                <select id="bitwise-op" class="code-input">
+                                    <option value="and">AND (&)</option>
+                                    <option value="or">OR (|)</option>
+                                    <option value="xor">XOR (^)</option>
+                                    <option value="not">NOT (~A)</option>
+                                    <option value="shl">Shift Left (<<)</option>
+                                    <option value="shr">Shift Right (>>)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Valor B (hex)</label>
+                                <input type="text" id="bitwise-b" class="code-input" placeholder="0F">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="btn-bitwise" style="margin-top: 0.5rem;">
+                            <i class="fas fa-play"></i> Calcular
+                        </button>
+                        <div class="result-box" id="bitwise-result" style="display:none; margin-top: 1rem;">
+                            <div class="result-label">Resultado</div>
+                            <div class="result-grid" id="bitwise-result-values"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Correção de Checksum -->
+            <div class="tool-panel" id="tool-correction">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-wrench"></i> Correção Manual de Checksum</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted" style="margin-bottom:1rem;">Carregue um arquivo .bin, defina a região e o offset do checksum, e o app recalcula e corrige automaticamente.</p>
+
+                        <div class="file-upload-area" id="correction-upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h3>Arraste o arquivo .bin aqui</h3>
+                            <p>ou clique para selecionar</p>
+                            <input type="file" id="correction-file-input" accept=".bin,.hex,.dat,.ori,.mod" hidden>
+                        </div>
+
+                        <div id="correction-form" style="display:none; margin-top:1.25rem;">
+                            <div class="file-details" style="margin-bottom:1rem;">
+                                <div class="form-row">
+                                    <div class="form-group"><label>Arquivo</label><span id="corr-file-name" class="file-tag"></span></div>
+                                    <div class="form-group"><label>Tamanho</label><span id="corr-file-size" class="file-tag"></span></div>
+                                </div>
+                            </div>
+
+                            <h3 style="color:var(--accent-blue);margin-bottom:0.75rem;font-size:0.95rem;"><i class="fas fa-crosshairs"></i> Região do Checksum</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Início da Região (hex)</label>
+                                    <input type="text" id="corr-region-start" class="code-input" placeholder="0x000000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fim da Região (hex)</label>
+                                    <input type="text" id="corr-region-end" class="code-input" placeholder="0x01FFFE">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Offset do Checksum no Arquivo (hex)</label>
+                                    <input type="text" id="corr-checksum-offset" class="code-input" placeholder="0x01FFFF">
+                                </div>
+                                <div class="form-group">
+                                    <label>Algoritmo</label>
+                                    <select id="corr-algorithm">
+                                        <option value="sum8">Checksum Sum8 (1 byte)</option>
+                                        <option value="sum16" selected>Checksum Sum16 (2 bytes)</option>
+                                        <option value="sum32">Checksum Sum32 (4 bytes)</option>
+                                        <option value="xor8">XOR8 (1 byte)</option>
+                                        <option value="crc16">CRC-16/CCITT (2 bytes)</option>
+                                        <option value="crc32">CRC-32 (4 bytes)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Byte Order</label>
+                                    <select id="corr-endian">
+                                        <option value="big">Big Endian (MSB)</option>
+                                        <option value="little">Little Endian (LSB)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row" style="margin-top:0.5rem;">
+                                <button class="btn btn-primary btn-lg" id="btn-check-correction">
+                                    <i class="fas fa-search"></i> Verificar
+                                </button>
+                                <button class="btn btn-success btn-lg" id="btn-apply-correction" disabled>
+                                    <i class="fas fa-wrench"></i> Corrigir e Baixar
+                                </button>
+                            </div>
+
+                            <div class="result-box" id="correction-result" style="display:none; margin-top:1rem;">
+                                <div class="result-label">Resultado da Verificação</div>
+                                <div id="correction-result-values"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perfil ME7 -->
+            <div class="tool-panel" id="tool-me7-profile">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-microchip"></i> Correção Automática - Perfil Bosch ME7</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted" style="margin-bottom:1rem;">
+                            Baseado no projeto open-source ME7Sum. Detecta automaticamente as regiões de checksum em firmwares Bosch ME7.x (VAG).
+                            Suporta checksums ROMSYS, blocos de dados e programa principal.
+                        </p>
+
+                        <div class="file-upload-area" id="me7-upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h3>Arraste o firmware ME7.x aqui</h3>
+                            <p>.bin (512KB ou 1MB típico)</p>
+                            <input type="file" id="me7-file-input" accept=".bin,.ori,.mod" hidden>
+                        </div>
+
+                        <div id="me7-results" style="display:none; margin-top:1.25rem;">
+                            <div class="file-details" style="margin-bottom:1rem;">
+                                <div class="form-row">
+                                    <div class="form-group"><label>Arquivo</label><span id="me7-file-name" class="file-tag"></span></div>
+                                    <div class="form-group"><label>Tamanho</label><span id="me7-file-size" class="file-tag"></span></div>
+                                </div>
+                            </div>
+
+                            <div id="me7-regions-list"></div>
+
+                            <div class="form-row" style="margin-top:1rem;">
+                                <button class="btn btn-success btn-lg" id="btn-me7-correct" disabled>
+                                    <i class="fas fa-wrench"></i> Corrigir Todos e Baixar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:1rem;">
+                    <div class="card-header"><h2><i class="fas fa-info-circle"></i> Regiões Típicas do ME7</h2></div>
+                    <div class="card-body">
+                        <div class="algo-info-grid">
+                            <div class="algo-info">
+                                <h4>ROMSYS (Boot)</h4>
+                                <p>Checksum da área de inicialização. Geralmente nos primeiros 0x4000 bytes. Algoritmo Sum16.</p>
+                            </div>
+                            <div class="algo-info">
+                                <h4>Main Program</h4>
+                                <p>CRC32 do programa principal. Cobre a maior parte do firmware. Armazena o CRC no header.</p>
+                            </div>
+                            <div class="algo-info">
+                                <h4>Multipoint Blocks</h4>
+                                <p>Múltiplos blocos de dados com checksums individuais. Cada bloco tem um par (start, end, checksum_offset).</p>
+                            </div>
+                            <div class="algo-info">
+                                <h4>RSA Signature</h4>
+                                <p>Firmwares mais novos têm assinatura RSA. Não pode ser corrigida sem a chave privada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparador de Binários -->
+            <div class="tool-panel" id="tool-bin-compare">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-columns"></i> Comparador de Binários</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted" style="margin-bottom:1rem;">Compare dois arquivos .bin byte a byte. Ideal para verificar diferenças entre original e modificado.</p>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-file"></i> Arquivo Original</label>
+                                <div class="file-upload-area" id="compare-upload-a" style="padding:1.25rem;">
+                                    <i class="fas fa-cloud-upload-alt" style="font-size:1.5rem;"></i>
+                                    <p style="margin-top:0.4rem;">Arraste ou clique</p>
+                                    <input type="file" id="compare-file-a" accept=".bin,.hex,.dat,.ori,.mod" hidden>
+                                </div>
+                                <span id="compare-name-a" class="file-tag" style="margin-top:0.5rem;display:none;"></span>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-file-alt"></i> Arquivo Modificado</label>
+                                <div class="file-upload-area" id="compare-upload-b" style="padding:1.25rem;">
+                                    <i class="fas fa-cloud-upload-alt" style="font-size:1.5rem;"></i>
+                                    <p style="margin-top:0.4rem;">Arraste ou clique</p>
+                                    <input type="file" id="compare-file-b" accept=".bin,.hex,.dat,.ori,.mod" hidden>
+                                </div>
+                                <span id="compare-name-b" class="file-tag" style="margin-top:0.5rem;display:none;"></span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg" id="btn-compare" style="margin-top:1rem;" disabled>
+                            <i class="fas fa-search"></i> Comparar Arquivos
+                        </button>
+
+                        <div id="compare-results" style="display:none; margin-top:1.25rem;">
+                            <div class="result-box">
+                                <div class="result-label">Resultado da Comparação</div>
+                                <div class="result-grid" id="compare-stats"></div>
+                            </div>
+                            <div style="margin-top:1rem; overflow:auto; max-height:500px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+                                <table class="pin-table" id="compare-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:100px;">Offset</th>
+                                            <th style="width:80px;">Original</th>
+                                            <th style="width:80px;">Modificado</th>
+                                            <th style="width:80px;">Diff</th>
+                                            <th>Contexto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="compare-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perfis Salvos -->
+            <div class="tool-panel" id="tool-profiles">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-save"></i> Perfis de ECU Salvos</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted" style="margin-bottom:1rem;">
+                            Salve perfis de checksum de ECUs que você já conhece. Assim você não precisa digitar os offsets toda vez.
+                        </p>
+
+                        <div id="saved-profiles-list"></div>
+
+                        <h3 style="color:var(--accent-blue);margin:1.5rem 0 0.75rem;font-size:0.95rem;border-top:1px solid var(--border-color);padding-top:1.25rem;">
+                            <i class="fas fa-plus-circle"></i> Criar Novo Perfil
+                        </h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nome do Perfil *</label>
+                                <input type="text" id="profile-name" placeholder="Ex: Bosch ME7.5 - VW Gol">
+                            </div>
+                            <div class="form-group">
+                                <label>ECU / Modelo</label>
+                                <input type="text" id="profile-ecu" placeholder="Ex: Bosch ME7.5.10">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tamanho do Firmware (bytes, opcional)</label>
+                            <input type="text" id="profile-filesize" class="code-input" placeholder="Ex: 524288 (512KB) ou 1048576 (1MB)">
+                        </div>
+
+                        <h4 style="margin:1rem 0 0.5rem;font-size:0.88rem;color:var(--text-secondary);">Regiões de Checksum</h4>
+                        <div id="profile-regions-container">
+                            <div class="profile-region-row" style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-sm);padding:0.85rem;margin-bottom:0.5rem;">
+                                <div class="form-row">
+                                    <div class="form-group"><label>Início (hex)</label><input type="text" class="code-input prof-start" placeholder="0x000000"></div>
+                                    <div class="form-group"><label>Fim (hex)</label><input type="text" class="code-input prof-end" placeholder="0x01FFFE"></div>
+                                    <div class="form-group"><label>Offset Checksum (hex)</label><input type="text" class="code-input prof-offset" placeholder="0x01FFFF"></div>
+                                    <div class="form-group">
+                                        <label>Algoritmo</label>
+                                        <select class="prof-algo">
+                                            <option value="sum8">Sum8</option>
+                                            <option value="sum16" selected>Sum16</option>
+                                            <option value="sum32">Sum32</option>
+                                            <option value="xor8">XOR8</option>
+                                            <option value="crc16">CRC-16</option>
+                                            <option value="crc32">CRC-32</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" id="btn-add-profile-region" style="margin-top:0.25rem;">
+                            <i class="fas fa-plus"></i> Adicionar Região
+                        </button>
+                        <div style="margin-top:1rem;">
+                            <button class="btn btn-success" id="btn-save-profile">
+                                <i class="fas fa-save"></i> Salvar Perfil
+                            </button>
+                            <button class="btn btn-secondary" id="btn-export-profiles" style="margin-left:0.5rem;">
+                                <i class="fas fa-download"></i> Exportar Perfis
+                            </button>
+                            <button class="btn btn-secondary" id="btn-import-profiles" style="margin-left:0.5rem;">
+                                <i class="fas fa-upload"></i> Importar Perfis
+                            </button>
+                            <input type="file" id="profiles-import-input" accept=".json" hidden>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================== PIDs OBD-II ==================== -->
+        <section class="section" id="section-pids">
+            <div class="section-header">
+                <h1><i class="fas fa-tachometer-alt"></i> PIDs OBD-II</h1>
+                <p>Parâmetros de diagnóstico e dados em tempo real - padrão SAE J1979</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="pid-search" placeholder="Buscar PID (ex: RPM, temperature, 0C...)">
+                </div>
+                <div class="filter-group">
+                    <select id="pid-mode-filter">
+                        <option value="">Todos os Modos</option>
+                        <option value="01">Mode 01 - Dados em Tempo Real</option>
+                        <option value="09">Mode 09 - Informações do Veículo</option>
+                    </select>
+                    <select id="pid-category-filter">
+                        <option value="">Todas as Categorias</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pid-grid" id="pid-results"></div>
+        </section>
+
+        <!-- ==================== SINAIS CAN BUS ==================== -->
+        <section class="section" id="section-can">
+            <div class="section-header">
+                <h1><i class="fas fa-project-diagram"></i> Sinais CAN Bus</h1>
+                <p>Base de dados de sinais CAN bus por veículo - fonte: OpenDBC (400+ arquivos)</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="can-search" placeholder="Buscar marca ou modelo (ex: Honda Civic, Toyota...)">
+                </div>
+            </div>
+
+            <div class="dashboard-grid" style="margin-bottom: 1.5rem;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-broadcast-tower"></i> Sinais CAN Comuns</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted" style="margin-bottom: 1rem;">Sinais presentes na maioria dos veículos via barramento CAN / OBD-II:</p>
+                        <div id="can-common-signals"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-car"></i> Veículos com Sinais CAN Disponíveis</h2>
+                </div>
+                <div class="card-body">
+                    <div id="can-vehicles-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MAPAS DE ECU ==================== -->
+        <section class="section" id="section-maps">
+            <div class="section-header">
+                <h1><i class="fas fa-map"></i> Mapas de ECU</h1>
+                <p>Visualize e edite mapas de calibração em 2D e 3D</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="filter-group">
+                    <select id="map-selector">
+                        <option value="">Selecione um mapa...</option>
+                    </select>
+                    <button class="btn btn-secondary" id="btn-import-map">
+                        <i class="fas fa-file-import"></i> Importar Mapa
+                    </button>
+                    <button class="btn btn-success" id="btn-save-map" disabled>
+                        <i class="fas fa-save"></i> Salvar Alterações
+                    </button>
+                    <button class="btn btn-secondary" id="btn-export-map" disabled>
+                        <i class="fas fa-file-export"></i> Exportar CSV
+                    </button>
+                </div>
+            </div>
+
+            <div id="map-content" style="display:none;">
+                <div class="map-info-bar">
+                    <span id="map-name-display" class="map-badge"></span>
+                    <span id="map-unit-display" class="map-badge secondary"></span>
+                    <span id="map-size-display" class="map-badge secondary"></span>
+                    <div class="map-view-toggle">
+                        <button class="btn btn-sm active" id="btn-view-2d" data-view="2d">
+                            <i class="fas fa-table"></i> 2D
+                        </button>
+                        <button class="btn btn-sm" id="btn-view-3d" data-view="3d">
+                            <i class="fas fa-cube"></i> 3D
+                        </button>
+                    </div>
+                </div>
+
+                <div class="map-editor" id="map-view-2d">
+                    <div class="map-table-container">
+                        <table id="map-table" class="map-table"></table>
+                    </div>
+                    <div class="map-legend" id="map-legend"></div>
+                </div>
+
+                <div class="map-3d-container" id="map-view-3d" style="display:none;">
+                    <div id="map-3d-plot" style="width:100%; height:500px;"></div>
+                </div>
+
+                <div class="map-edit-panel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-edit"></i> Edição Rápida</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Operação</label>
+                                    <select id="map-edit-op">
+                                        <option value="add">Somar (+)</option>
+                                        <option value="sub">Subtrair (-)</option>
+                                        <option value="mul">Multiplicar (×)</option>
+                                        <option value="set">Definir valor (=)</option>
+                                        <option value="pct">Porcentagem (%)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Valor</label>
+                                    <input type="number" id="map-edit-value" class="code-input" step="0.1" placeholder="0">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" id="btn-apply-edit">
+                                        <i class="fas fa-check"></i> Aplicar nas Células Selecionadas
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-muted" style="margin-top: 0.5rem;">
+                                <i class="fas fa-info-circle"></i>
+                                Clique em células para selecionar. Segure Ctrl para múltipla seleção. Segure Shift para intervalo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="map-empty-state" class="empty-state">
+                <i class="fas fa-map"></i>
+                <h3>Nenhum Mapa Selecionado</h3>
+                <p>Selecione um mapa da lista acima ou importe um novo mapa para começar</p>
+            </div>
+
+            <input type="file" id="map-import-input" accept=".json,.csv" hidden>
+        </section>
+
+        <!-- ==================== BASE DE DADOS ==================== -->
+        <section class="section" id="section-database">
+            <div class="section-header">
+                <h1><i class="fas fa-database"></i> Base de Dados Expansível</h1>
+                <p>Gerencie, importe e exporte dados. Adicione suas próprias entradas.</p>
+            </div>
+
+            <div class="db-tabs">
+                <button class="db-tab active" data-db="overview">
+                    <i class="fas fa-chart-pie"></i> Visão Geral
+                </button>
+                <button class="db-tab" data-db="add-pinout">
+                    <i class="fas fa-plug"></i> Adicionar Pinagem
+                </button>
+                <button class="db-tab" data-db="add-dtc">
+                    <i class="fas fa-exclamation-triangle"></i> Adicionar DTC
+                </button>
+                <button class="db-tab" data-db="add-map">
+                    <i class="fas fa-map"></i> Adicionar Mapa
+                </button>
+                <button class="db-tab" data-db="import-export">
+                    <i class="fas fa-exchange-alt"></i> Importar / Exportar
+                </button>
+                <button class="db-tab" data-db="docs">
+                    <i class="fas fa-book"></i> Documentação
+                </button>
+            </div>
+
+            <!-- Visão Geral -->
+            <div class="db-panel active" id="db-overview">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fas fa-plug"></i></div>
+                        <div class="stat-info">
+                            <h3 id="db-stat-pinouts">0</h3>
+                            <p>Pinagens de ECU</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="stat-info">
+                            <h3 id="db-stat-dtc">0</h3>
+                            <p>Códigos de Falha</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple"><i class="fas fa-map"></i></div>
+                        <div class="stat-info">
+                            <h3 id="db-stat-maps">0</h3>
+                            <p>Mapas de ECU</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fas fa-user-plus"></i></div>
+                        <div class="stat-info">
+                            <h3 id="db-stat-custom">0</h3>
+                            <p>Entradas Customizadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2><i class="fas fa-history"></i> Entradas Recentes Adicionadas</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="db-recent-entries">
+                            <p class="text-muted">Nenhuma entrada customizada ainda. Use as abas acima para adicionar dados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicionar Pinagem -->
+            <div class="db-panel" id="db-add-pinout">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-plus-circle"></i> Adicionar Nova Pinagem de ECU</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fabricante da ECU *</label>
+                                <input type="text" id="new-pinout-brand" placeholder="Ex: Bosch, Delphi, Marelli">
+                            </div>
+                            <div class="form-group">
+                                <label>Modelo da ECU *</label>
+                                <input type="text" id="new-pinout-model" placeholder="Ex: ME7.5.10">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Veículos que utilizam</label>
+                                <input type="text" id="new-pinout-vehicles" placeholder="Ex: VW Gol G5, Fiat Palio 1.0">
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo de combustível</label>
+                                <select id="new-pinout-fuel">
+                                    <option value="gasoline">Gasolina/Flex</option>
+                                    <option value="diesel">Diesel</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Número de Pinos *</label>
+                            <input type="number" id="new-pinout-pins-count" placeholder="Ex: 81" min="1" max="200">
+                        </div>
+                        <button class="btn btn-secondary" id="btn-generate-pin-form">
+                            <i class="fas fa-table"></i> Gerar Tabela de Pinos
+                        </button>
+                        <div id="new-pinout-pins-container" style="margin-top: 1rem;"></div>
+                        <button class="btn btn-success" id="btn-save-new-pinout" style="margin-top: 1rem; display:none;">
+                            <i class="fas fa-save"></i> Salvar Pinagem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicionar DTC -->
+            <div class="db-panel" id="db-add-dtc">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-plus-circle"></i> Adicionar Novo Código de Falha</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Código DTC *</label>
+                                <input type="text" id="new-dtc-code" placeholder="Ex: P0420">
+                            </div>
+                            <div class="form-group">
+                                <label>Sistema</label>
+                                <input type="text" id="new-dtc-system" placeholder="Ex: Catalisador">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Descrição *</label>
+                            <input type="text" id="new-dtc-desc" placeholder="Ex: Eficiência do catalisador abaixo do limiar">
+                        </div>
+                        <div class="form-group">
+                            <label>Causas Possíveis</label>
+                            <textarea id="new-dtc-causes" rows="3" placeholder="Uma causa por linha:&#10;Catalisador danificado&#10;Sensor de O2 com defeito&#10;Vazamento de escape"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Soluções Sugeridas</label>
+                            <textarea id="new-dtc-solutions" rows="3" placeholder="Uma solução por linha:&#10;Verificar catalisador&#10;Trocar sensor de O2&#10;Verificar escape"></textarea>
+                        </div>
+                        <button class="btn btn-success" id="btn-save-new-dtc">
+                            <i class="fas fa-save"></i> Salvar Código de Falha
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicionar Mapa -->
+            <div class="db-panel" id="db-add-map">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-plus-circle"></i> Adicionar Novo Mapa de ECU</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nome do Mapa *</label>
+                                <input type="text" id="new-map-name" placeholder="Ex: Mapa de Combustível - VW Gol G5">
+                            </div>
+                            <div class="form-group">
+                                <label>Unidade dos Valores</label>
+                                <input type="text" id="new-map-unit" placeholder="Ex: ms, graus, kPa, %">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Eixo X (colunas - separar por vírgula) *</label>
+                                <input type="text" id="new-map-x" placeholder="Ex: 500,1000,1500,2000,2500,3000">
+                            </div>
+                            <div class="form-group">
+                                <label>Label do Eixo X</label>
+                                <input type="text" id="new-map-x-label" placeholder="Ex: RPM">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Eixo Y (linhas - separar por vírgula) *</label>
+                                <input type="text" id="new-map-y" placeholder="Ex: 20,30,40,50,60,70,80,90,100">
+                            </div>
+                            <div class="form-group">
+                                <label>Label do Eixo Y</label>
+                                <input type="text" id="new-map-y-label" placeholder="Ex: Carga (%)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Valores (linhas separadas por ; e valores por ,) *</label>
+                            <textarea id="new-map-values" rows="4" placeholder="Exemplo (3 linhas x 4 colunas):&#10;2.5, 3.0, 3.5, 4.0;&#10;3.0, 3.5, 4.0, 4.5;&#10;3.5, 4.0, 4.5, 5.0"></textarea>
+                        </div>
+                        <button class="btn btn-success" id="btn-save-new-map">
+                            <i class="fas fa-save"></i> Salvar Mapa
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Importar / Exportar -->
+            <div class="db-panel" id="db-import-export">
+                <div class="dashboard-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-file-import"></i> Importar Dados</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>Importe dados de um arquivo JSON. O arquivo deve seguir o formato documentado na aba "Documentação".</p>
+                            <div class="file-upload-area" id="db-import-area" style="margin-top: 1rem;">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Arraste o arquivo JSON aqui</h3>
+                                <p>ou clique para selecionar</p>
+                                <input type="file" id="db-import-input" accept=".json" hidden>
+                            </div>
+                            <div id="db-import-preview" style="display:none; margin-top: 1rem;"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-file-export"></i> Exportar Dados</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>Exporte toda a base de dados ou partes específicas em formato JSON.</p>
+                            <div class="export-options">
+                                <button class="btn btn-primary btn-block" id="btn-export-all">
+                                    <i class="fas fa-download"></i> Exportar Tudo (JSON)
+                                </button>
+                                <button class="btn btn-secondary btn-block" id="btn-export-pinouts">
+                                    <i class="fas fa-plug"></i> Exportar Pinagens
+                                </button>
+                                <button class="btn btn-secondary btn-block" id="btn-export-dtc">
+                                    <i class="fas fa-exclamation-triangle"></i> Exportar DTCs
+                                </button>
+                                <button class="btn btn-secondary btn-block" id="btn-export-maps">
+                                    <i class="fas fa-map"></i> Exportar Mapas
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentação -->
+            <div class="db-panel" id="db-docs">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-book"></i> Documentação - Formato dos Dados</h2>
+                    </div>
+                    <div class="card-body docs-content">
+                        <h3>Estrutura Geral</h3>
+                        <p>A base de dados é armazenada em formato JSON e salva no <code>localStorage</code> do navegador. Você pode importar/exportar arquivos JSON para backup ou compartilhar dados.</p>
+
+                        <h3>1. Formato de Pinagem de ECU</h3>
+                        <pre class="code-block"><code>{
+  "id": "bosch-me7-custom",
+  "brand": "Bosch",
+  "model": "ME7.5.10",
+  "vehicles": ["VW Gol G5 1.0", "VW Fox 1.0"],
+  "fuelType": "gasoline",
+  "connectors": [
+    {
+      "name": "Conector Principal (81 pinos)",
+      "pins": [
+        {
+          "pin": 1,
+          "function": "Alimentação +12V",
+          "wire_color": "Vermelho/Preto",
+          "description": "Alimentação principal da ECU"
+        },
+        {
+          "pin": 2,
+          "function": "Massa (GND)",
+          "wire_color": "Marrom",
+          "description": "Aterramento de potência"
+        }
+      ]
+    }
+  ],
+  "custom": true
+}</code></pre>
+
+                        <h3>2. Formato de Código de Falha (DTC)</h3>
+                        <pre class="code-block"><code>{
+  "code": "P0420",
+  "category": "P",
+  "system": "Catalisador",
+  "description": "Eficiência do sistema catalisador abaixo do limiar (Banco 1)",
+  "causes": [
+    "Catalisador danificado ou deteriorado",
+    "Sensor de O2 posterior com defeito",
+    "Vazamento no sistema de escape"
+  ],
+  "solutions": [
+    "Verificar estado do catalisador",
+    "Testar sensores de O2",
+    "Inspecionar escape por vazamentos"
+  ],
+  "severity": "medium",
+  "custom": true
+}</code></pre>
+
+                        <h3>3. Formato de Mapa de ECU</h3>
+                        <pre class="code-block"><code>{
+  "id": "fuel-map-gol-g5",
+  "name": "Mapa de Combustível - VW Gol G5",
+  "unit": "ms",
+  "xAxis": {
+    "label": "RPM",
+    "values": [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]
+  },
+  "yAxis": {
+    "label": "Carga (%)",
+    "values": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+  },
+  "data": [
+    [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3],
+    [1.8, 2.1, 2.5, 2.9, 3.2, 3.6, 4.0, 4.3],
+    ...
+  ],
+  "custom": true
+}</code></pre>
+
+                        <h3>4. Importação em Lote</h3>
+                        <p>Para importar múltiplas entradas de uma vez, use um arquivo JSON com a seguinte estrutura:</p>
+                        <pre class="code-block"><code>{
+  "type": "math-tools-export",
+  "version": "1.0",
+  "data": {
+    "pinouts": [ ... ],
+    "dtcCodes": [ ... ],
+    "ecuMaps": [ ... ]
+  }
+}</code></pre>
+
+                        <h3>5. Dicas</h3>
+                        <ul>
+                            <li>O campo <code>"custom": true</code> é adicionado automaticamente para diferenciar suas entradas das originais.</li>
+                            <li>IDs devem ser únicos. Use formato <code>"marca-modelo-descricao"</code>.</li>
+                            <li>Exporte regularmente para não perder dados (localStorage tem limite de ~5MB).</li>
+                            <li>Você pode editar o JSON exportado em qualquer editor de texto e reimportar.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast de notificação -->
+    <div id="toast-container"></div>
+
+    <!-- Modal genérico -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer" id="modal-footer"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/pinouts.js"></script>
+    <script src="js/dtc.js"></script>
+    <script src="js/checksum.js"></script>
+    <script src="js/pids.js"></script>
+    <script src="js/can.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/database.js"></script>
+</body>
+</html>

@@ -1,0 +1,1066 @@
+[
+ {
+  "mode": "01",
+  "pid": "00",
+  "dataBytes": 4,
+  "description": "PIDs supported [01 - 20]",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "01",
+  "dataBytes": 4,
+  "description": "Monitor status since DTCs cleared.",
+  "category": "Diagnóstico"
+ },
+ {
+  "mode": "01",
+  "pid": "02",
+  "dataBytes": 2,
+  "description": "Freeze DTC",
+  "category": "Diagnóstico"
+ },
+ {
+  "mode": "01",
+  "pid": "03",
+  "dataBytes": 2,
+  "description": "Fuel system status",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "04",
+  "dataBytes": 1,
+  "description": "Calculated engine load value",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "05",
+  "dataBytes": 1,
+  "description": "Engine coolant temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "06",
+  "dataBytes": 1,
+  "description": "Short term fuel % trim—Bank 1",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "07",
+  "dataBytes": 1,
+  "description": "Long term fuel % trim—Bank 1",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "08",
+  "dataBytes": 1,
+  "description": "Short term fuel % trim—Bank 2",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "09",
+  "dataBytes": 1,
+  "description": "Long term fuel % trim—Bank 2",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "0A",
+  "dataBytes": 1,
+  "description": "Fuel pressure",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "0B",
+  "dataBytes": 1,
+  "description": "Intake manifold absolute pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "0C",
+  "dataBytes": 2,
+  "description": "Engine RPM",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "0D",
+  "dataBytes": 1,
+  "description": "Vehicle speed",
+  "category": "Velocidade"
+ },
+ {
+  "mode": "01",
+  "pid": "0E",
+  "dataBytes": 1,
+  "description": "Timing advance",
+  "category": "Geral"
+ },
+ {
+  "mode": "01",
+  "pid": "0F",
+  "dataBytes": 1,
+  "description": "Intake air temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "10",
+  "dataBytes": 2,
+  "description": "MAF air flow rate",
+  "category": "Admissão de Ar"
+ },
+ {
+  "mode": "01",
+  "pid": "11",
+  "dataBytes": 1,
+  "description": "Throttle position",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "12",
+  "dataBytes": 1,
+  "description": "Commanded secondary air status",
+  "category": "Admissão de Ar"
+ },
+ {
+  "mode": "01",
+  "pid": "13",
+  "dataBytes": 1,
+  "description": "Oxygen sensors present",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "14",
+  "dataBytes": 2,
+  "description": "Bank 1, Sensor 1: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "15",
+  "dataBytes": 2,
+  "description": "Bank 1, Sensor 2: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "16",
+  "dataBytes": 2,
+  "description": "Bank 1, Sensor 3: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "17",
+  "dataBytes": 2,
+  "description": "Bank 1, Sensor 4: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "18",
+  "dataBytes": 2,
+  "description": "Bank 2, Sensor 1: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "19",
+  "dataBytes": 2,
+  "description": "Bank 2, Sensor 2: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "1A",
+  "dataBytes": 2,
+  "description": "Bank 2, Sensor 3: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "1B",
+  "dataBytes": 2,
+  "description": "Bank 2, Sensor 4: Oxygen sensor voltage, Short term fuel trim",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "1C",
+  "dataBytes": 1,
+  "description": "OBD standards this vehicle conforms to",
+  "category": "Geral"
+ },
+ {
+  "mode": "01",
+  "pid": "1D",
+  "dataBytes": 1,
+  "description": "Oxygen sensors present",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "1E",
+  "dataBytes": 1,
+  "description": "Auxiliary input status",
+  "category": "Geral"
+ },
+ {
+  "mode": "01",
+  "pid": "1F",
+  "dataBytes": 2,
+  "description": "Run time since engine start",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "20",
+  "dataBytes": 4,
+  "description": "PIDs supported [21 - 40]",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "21",
+  "dataBytes": 2,
+  "description": "Distance traveled with malfunction indicator lamp (MIL) on",
+  "category": "Diagnóstico"
+ },
+ {
+  "mode": "01",
+  "pid": "22",
+  "dataBytes": 2,
+  "description": "Fuel Rail Pressure (relative to manifold vacuum)",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "23",
+  "dataBytes": 2,
+  "description": "Fuel Rail Pressure (diesel, or gasoline direct inject)",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "24",
+  "dataBytes": 4,
+  "description": "O2S1_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "25",
+  "dataBytes": 4,
+  "description": "O2S2_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "26",
+  "dataBytes": 4,
+  "description": "O2S3_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "27",
+  "dataBytes": 4,
+  "description": "O2S4_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "28",
+  "dataBytes": 4,
+  "description": "O2S5_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "29",
+  "dataBytes": 4,
+  "description": "O2S6_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "2A",
+  "dataBytes": 4,
+  "description": "O2S7_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "2B",
+  "dataBytes": 4,
+  "description": "O2S8_WR_lambda(1): Equivalence Ratio Voltage",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "2C",
+  "dataBytes": 1,
+  "description": "Commanded EGR",
+  "category": "EGR"
+ },
+ {
+  "mode": "01",
+  "pid": "2D",
+  "dataBytes": 1,
+  "description": "EGR Error",
+  "category": "EGR"
+ },
+ {
+  "mode": "01",
+  "pid": "2E",
+  "dataBytes": 1,
+  "description": "Commanded evaporative purge",
+  "category": "Evaporação"
+ },
+ {
+  "mode": "01",
+  "pid": "2F",
+  "dataBytes": 1,
+  "description": "Fuel Level Input",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "30",
+  "dataBytes": 1,
+  "description": "# of warm-ups since codes cleared",
+  "category": "Geral"
+ },
+ {
+  "mode": "01",
+  "pid": "31",
+  "dataBytes": 2,
+  "description": "Distance traveled since codes cleared",
+  "category": "Tempo/Distância"
+ },
+ {
+  "mode": "01",
+  "pid": "32",
+  "dataBytes": 2,
+  "description": "Evap. System Vapor Pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "33",
+  "dataBytes": 1,
+  "description": "Barometric pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "34",
+  "dataBytes": 4,
+  "description": "O2S1_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "35",
+  "dataBytes": 4,
+  "description": "O2S2_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "36",
+  "dataBytes": 4,
+  "description": "O2S3_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "37",
+  "dataBytes": 4,
+  "description": "O2S4_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "38",
+  "dataBytes": 4,
+  "description": "O2S5_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "39",
+  "dataBytes": 4,
+  "description": "O2S6_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "3A",
+  "dataBytes": 4,
+  "description": "O2S7_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "3B",
+  "dataBytes": 4,
+  "description": "O2S8_WR_lambda(1): Equivalence Ratio Current",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "3C",
+  "dataBytes": 2,
+  "description": "Catalyst Temperature Bank 1, Sensor 1",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "3D",
+  "dataBytes": 2,
+  "description": "Catalyst Temperature Bank 2, Sensor 1",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "3E",
+  "dataBytes": 2,
+  "description": "Catalyst Temperature Bank 1, Sensor 2",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "3F",
+  "dataBytes": 2,
+  "description": "Catalyst Temperature Bank 2, Sensor 2",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "40",
+  "dataBytes": 4,
+  "description": "PIDs supported [41 - 60]",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "41",
+  "dataBytes": 4,
+  "description": "Monitor status this drive cycle",
+  "category": "Diagnóstico"
+ },
+ {
+  "mode": "01",
+  "pid": "42",
+  "dataBytes": 2,
+  "description": "Control module voltage",
+  "category": "Elétrico"
+ },
+ {
+  "mode": "01",
+  "pid": "43",
+  "dataBytes": 2,
+  "description": "Absolute load value",
+  "category": "Geral"
+ },
+ {
+  "mode": "01",
+  "pid": "44",
+  "dataBytes": 2,
+  "description": "Fuel/Air commanded equivalence ratio",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "45",
+  "dataBytes": 1,
+  "description": "Relative throttle position",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "46",
+  "dataBytes": 1,
+  "description": "Ambient air temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "47",
+  "dataBytes": 1,
+  "description": "Absolute throttle position B",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "48",
+  "dataBytes": 1,
+  "description": "Absolute throttle position C",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "49",
+  "dataBytes": 1,
+  "description": "Accelerator pedal position D",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "4A",
+  "dataBytes": 1,
+  "description": "Accelerator pedal position E",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "4B",
+  "dataBytes": 1,
+  "description": "Accelerator pedal position F",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "4C",
+  "dataBytes": 1,
+  "description": "Commanded throttle actuator",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "4D",
+  "dataBytes": 2,
+  "description": "Time run with MIL on",
+  "category": "Diagnóstico"
+ },
+ {
+  "mode": "01",
+  "pid": "4E",
+  "dataBytes": 2,
+  "description": "Time since trouble codes cleared",
+  "category": "Tempo/Distância"
+ },
+ {
+  "mode": "01",
+  "pid": "4F",
+  "dataBytes": 4,
+  "description": "Maximum value for equivalence ratio, oxygen sensor voltage, oxygen sensor current, and intake manifold absolute pressure",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "50",
+  "dataBytes": 4,
+  "description": "Maximum value for air flow rate from mass air flow sensor",
+  "category": "Admissão de Ar"
+ },
+ {
+  "mode": "01",
+  "pid": "51",
+  "dataBytes": 1,
+  "description": "Fuel Type",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "52",
+  "dataBytes": 1,
+  "description": "Ethanol fuel %",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "53",
+  "dataBytes": 2,
+  "description": "Absolute Evap system Vapor Pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "54",
+  "dataBytes": 2,
+  "description": "Evap system vapor pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "55",
+  "dataBytes": 2,
+  "description": "Short term secondary oxygen sensor trim bank 1 and bank 3",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "56",
+  "dataBytes": 2,
+  "description": "Long term secondary oxygen sensor trim bank 1 and bank 3",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "57",
+  "dataBytes": 2,
+  "description": "Short term secondary oxygen sensor trim bank 2 and bank 4",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "58",
+  "dataBytes": 2,
+  "description": "Long term secondary oxygen sensor trim bank 2 and bank 4",
+  "category": "Sonda Lambda"
+ },
+ {
+  "mode": "01",
+  "pid": "59",
+  "dataBytes": 2,
+  "description": "Fuel rail pressure (absolute)",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "5A",
+  "dataBytes": 1,
+  "description": "Relative accelerator pedal position",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "5B",
+  "dataBytes": 1,
+  "description": "Hybrid battery pack remaining life",
+  "category": "Elétrico"
+ },
+ {
+  "mode": "01",
+  "pid": "5C",
+  "dataBytes": 1,
+  "description": "Engine oil temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "5D",
+  "dataBytes": 2,
+  "description": "Fuel injection timing",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "5E",
+  "dataBytes": 2,
+  "description": "Engine fuel rate",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "5F",
+  "dataBytes": 1,
+  "description": "Emission requirements to which vehicle is designed",
+  "category": "Geral"
+ },
+ {
+  "mode": "01",
+  "pid": "60",
+  "dataBytes": 4,
+  "description": "PIDs supported [61 - 80]",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "61",
+  "dataBytes": 1,
+  "description": "Driver's demand engine - percent torque",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "62",
+  "dataBytes": 1,
+  "description": "Actual engine - percent torque",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "63",
+  "dataBytes": 2,
+  "description": "Engine reference torque",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "64",
+  "dataBytes": 5,
+  "description": "Engine percent torque data",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "65",
+  "dataBytes": 2,
+  "description": "Auxiliary input / output supported",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "66",
+  "dataBytes": 5,
+  "description": "Mass air flow sensor",
+  "category": "Admissão de Ar"
+ },
+ {
+  "mode": "01",
+  "pid": "67",
+  "dataBytes": 3,
+  "description": "Engine coolant temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "68",
+  "dataBytes": 7,
+  "description": "Intake air temperature sensor",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "69",
+  "dataBytes": 7,
+  "description": "Commanded EGR and EGR Error",
+  "category": "EGR"
+ },
+ {
+  "mode": "01",
+  "pid": "6A",
+  "dataBytes": 5,
+  "description": "Commanded Diesel intake air flow control and relative intake air flow position",
+  "category": "Admissão de Ar"
+ },
+ {
+  "mode": "01",
+  "pid": "6B",
+  "dataBytes": 5,
+  "description": "Exhaust gas recirculation temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "6C",
+  "dataBytes": 5,
+  "description": "Commanded throttle actuator control and relative throttle position",
+  "category": "Aceleração/Borboleta"
+ },
+ {
+  "mode": "01",
+  "pid": "6D",
+  "dataBytes": 6,
+  "description": "Fuel pressure control system",
+  "category": "Combustível"
+ },
+ {
+  "mode": "01",
+  "pid": "6E",
+  "dataBytes": 5,
+  "description": "Injection pressure control system",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "6F",
+  "dataBytes": 3,
+  "description": "Turbocharger compressor inlet pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "70",
+  "dataBytes": 9,
+  "description": "Boost pressure control",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "71",
+  "dataBytes": 5,
+  "description": "Variable Geometry turbo (VGT) control",
+  "category": "Turbo"
+ },
+ {
+  "mode": "01",
+  "pid": "72",
+  "dataBytes": 5,
+  "description": "Wastegate control",
+  "category": "Turbo"
+ },
+ {
+  "mode": "01",
+  "pid": "73",
+  "dataBytes": 5,
+  "description": "Exhaust pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "74",
+  "dataBytes": 5,
+  "description": "Turbocharger RPM",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "75",
+  "dataBytes": 7,
+  "description": "Turbocharger temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "76",
+  "dataBytes": 7,
+  "description": "Turbocharger temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "77",
+  "dataBytes": 5,
+  "description": "Charge air cooler temperature (CACT)",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "78",
+  "dataBytes": 9,
+  "description": "Exhaust Gas temperature (EGT) Bank 1",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "79",
+  "dataBytes": 9,
+  "description": "Exhaust Gas temperature (EGT) Bank 2",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "7A",
+  "dataBytes": 7,
+  "description": "Diesel particulate filter (DPF)",
+  "category": "Emissões"
+ },
+ {
+  "mode": "01",
+  "pid": "7B",
+  "dataBytes": 7,
+  "description": "Diesel particulate filter (DPF)",
+  "category": "Emissões"
+ },
+ {
+  "mode": "01",
+  "pid": "7C",
+  "dataBytes": 9,
+  "description": "Diesel Particulate filter (DPF) temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "7D",
+  "dataBytes": 1,
+  "description": "NOx NTE control area status",
+  "category": "Emissões"
+ },
+ {
+  "mode": "01",
+  "pid": "7E",
+  "dataBytes": 1,
+  "description": "PM NTE control area status",
+  "category": "Emissões"
+ },
+ {
+  "mode": "01",
+  "pid": "7F",
+  "dataBytes": 13,
+  "description": "Engine run time",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "80",
+  "dataBytes": 4,
+  "description": "PIDs supported [81 - A0]",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "81",
+  "dataBytes": 21,
+  "description": "Engine run time for Auxiliary Emissions Control Device(AECD)",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "82",
+  "dataBytes": 21,
+  "description": "Engine run time for Auxiliary Emissions Control Device(AECD)",
+  "category": "Motor"
+ },
+ {
+  "mode": "01",
+  "pid": "83",
+  "dataBytes": 5,
+  "description": "NOx sensor",
+  "category": "Emissões"
+ },
+ {
+  "mode": "01",
+  "pid": "84",
+  "dataBytes": 1,
+  "description": "Manifold surface temperature",
+  "category": "Temperatura"
+ },
+ {
+  "mode": "01",
+  "pid": "85",
+  "dataBytes": 1,
+  "description": "NOx reagent system",
+  "category": "Emissões"
+ },
+ {
+  "mode": "01",
+  "pid": "86",
+  "dataBytes": 1,
+  "description": "Particulate matter (PM) sensor",
+  "category": "Emissões"
+ },
+ {
+  "mode": "01",
+  "pid": "87",
+  "dataBytes": 1,
+  "description": "Intake manifold absolute pressure",
+  "category": "Pressão"
+ },
+ {
+  "mode": "01",
+  "pid": "A0",
+  "dataBytes": 4,
+  "description": "PIDs supported [A1 - C0]",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "C0",
+  "dataBytes": 4,
+  "description": "PIDs supported [C1 - E0]",
+  "category": "Sistema OBD"
+ },
+ {
+  "mode": "01",
+  "pid": "C3",
+  "dataBytes": 1,
+  "description": " ?",
+  "category": "Geral"
+ },
+ {
+  "mode": "01",
+  "pid": "C4",
+  "dataBytes": 1,
+  "description": " ?",
+  "category": "Geral"
+ },
+ {
+  "mode": "09",
+  "pid": "00",
+  "dataBytes": 4,
+  "description": "Mode 9 supported PIDs (01 to 20)",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "01",
+  "dataBytes": 1,
+  "description": "VIN Message Count in PID 02. Only for ISO 9141-2, ISO 14230-4 and SAE J1850",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "02",
+  "dataBytes": 20,
+  "description": "Vehicle Identification Number (VIN)",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "03",
+  "dataBytes": 1,
+  "description": "Calibration ID message count for PID 04. Only for ISO 9141-2, ISO 14230-4 and SAE J1850",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "04",
+  "dataBytes": 16,
+  "description": "Calibration ID",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "05",
+  "dataBytes": 1,
+  "description": "Calibration verification numbers (CVN) message count for PID 06. Only for ISO 9141-2, ISO 14230-4 and SAE J1850",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "06",
+  "dataBytes": 4,
+  "description": "Calibration Verification Numbers (CVN)",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "07",
+  "dataBytes": 1,
+  "description": "In-use performance tracking message count for PID 08 and 0B. Only for ISO 9141-2, ISO 14230-4 and SAE J1850.",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "08",
+  "dataBytes": 4,
+  "description": "In-use performance tracking for spark ignition vehicles",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "09",
+  "dataBytes": 1,
+  "description": "ECU name message count for PID 0A",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "0A",
+  "dataBytes": 20,
+  "description": "ECU name",
+  "category": "Informações do Veículo"
+ },
+ {
+  "mode": "09",
+  "pid": "0B",
+  "dataBytes": 4,
+  "description": "In-use performance tracking for compression ignition vehicles",
+  "category": "Informações do Veículo"
+ }
+]
